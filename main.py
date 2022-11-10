@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing import image
 #--------------------------------------------------
 
 from tensorflow.keras.models import Model 
-from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activation, MaxPooling2D, Conv2D, BatchNormalization 
+#from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activation, MaxPooling2D, Conv2D, BatchNormalization 
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils
 
