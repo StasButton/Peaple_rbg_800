@@ -6,11 +6,11 @@ from tensorflow.keras.preprocessing import image
 #--------------------------------------------------
 
 from tensorflow.keras.models import Model 
-#from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activation, MaxPooling2D, Conv2D, BatchNormalization 
+from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activation, MaxPooling2D, Conv2D, BatchNormalization 
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils
 
-import u_net
+import e
 
 img_width = 192
 img_height = 256
@@ -185,8 +185,8 @@ n_classes = 2
 
 st.title('Загрузка, скачивание изображений')
 img = load_image()
-#d = e.l()
-st.text(str(e.l()))
+
+#st.text(str(e.l()))
 result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
