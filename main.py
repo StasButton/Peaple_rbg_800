@@ -39,11 +39,10 @@ def load_image():
         return  img
     else:
         return None
-
+    
+n_classes = 2
 def prediction(i)
-    Pred = []
-    n_classes = 2
-    #for inx, i in enumerate(xt): 
+    #Pred = []
     pr = np.array(model.predict(i.reshape(1, img_height,img_width, 3))) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     pr1 = [] # Пустой лист под сегментированную картинку из predicta
@@ -51,9 +50,10 @@ def prediction(i)
        pr1.append(index2color(q) # Переводим индекс в писксель
        pr1 = np.array(pr1)
        pr1 = pr1.reshape(img_height,img_width,1)
-       Pred.append(pr1)
-#Pred = np.array(Pred)
-#--->
+    return pr1
+    #Pred.append(pr1)
+    #Pred = np.array(Pred)
+
 
 st.title('Загрузка, скачивание изображений')
 img = load_image()
