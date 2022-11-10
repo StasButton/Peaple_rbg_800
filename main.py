@@ -15,8 +15,7 @@ import u_net
 img_width = 192
 img_height = 256
 num_classes = 2
-def dice_coef(y_true, y_pred):
-    return (2. * K.sum(y_true * y_pred) + 1.) / (K.sum(y_true) + K.sum(y_pred) + 1.)
+
 def index2color(ind):
     index = np.argmax(ind) # Получаем индекс максимального элемента
     color = index*255
