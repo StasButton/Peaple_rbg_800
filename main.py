@@ -10,7 +10,7 @@ from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activat
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils
 
-from u_net import modelUnet
+#from u_net import modelUnet
 
 #import os 
 #import cv2
