@@ -186,7 +186,13 @@ n_classes = 2
 
 st.title('Загрузка, скачивание изображений')
 img = load_image()
-x = preprocess_image(img)
+
+
+result = st.button('Распознать изображение')
+if result:
+    x = preprocess_image(img)
+
+
 
 st.text(x.shape)
 
