@@ -10,8 +10,7 @@ from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activat
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils
 
-#from u_net import modelUnet
-import u_net
+#import u_net
 
 def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     img_input = Input(input_shape)                                         # Создаем входной слой с размерностью input_shape
