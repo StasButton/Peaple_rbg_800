@@ -158,7 +158,8 @@ def load_image():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
-        return image_data, img
+        ar = image.img_to_array(img)
+        return image_data, ar
     else:
         return None
 
@@ -178,14 +179,9 @@ n_classes = 2
 #Pred = np.array(Pred)
 #--->
 
-st.title('Классификации изображений в облаке Streamlit')
-
-
-
-
 st.title('Загрузка, скачивание изображений')
-s, img = load_image()
-ar = image.img_to_array(img)
+s, ar = load_image()
+
 st.text(ar.shape)
 
 if s is not None:
