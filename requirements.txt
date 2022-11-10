@@ -1,2 +1,5 @@
-     streamlit
-     tensorflow-cpu
+streamlit
+tensorflow-cpu
+numpy
+PIL
+cv2
