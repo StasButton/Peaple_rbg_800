@@ -1,3 +1,2 @@
 streamlit
 tensorflow-cpu
-u_net
