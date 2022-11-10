@@ -11,6 +11,15 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import utils
 
 #import u_net
+img_width = 192
+img_height = 256
+num_classes = 2
+def dice_coef(y_true, y_pred):
+    return (2. * K.sum(y_true * y_pred) + 1.) / (K.sum(y_true) + K.sum(y_pred) + 1.)
+def index2color(ind):
+    index = np.argmax(ind) # Получаем индекс максимального элемента
+    color = index*255
+    return color # Возвращаем цвет пикслея
 
 def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     img_input = Input(input_shape)                                         # Создаем входной слой с размерностью input_shape
