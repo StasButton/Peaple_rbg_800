@@ -24,7 +24,7 @@ model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
 #--------------------------------------------------
 def preprocess_image(img):
-    #img = img.resize((224, 224))
+    img = img.resize((192, 256))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     #x = preprocess_input(x)
