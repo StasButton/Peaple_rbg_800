@@ -36,6 +36,10 @@ def load_image():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
+        result = st.button('Распознать изображение')
+        if result:
+            x = preprocess_image(img)
+            st.text(x.shape)
         return  img
     else:
         return None
@@ -56,14 +60,11 @@ def prediction(i):
 
 
 st.title('Загрузка, скачивание изображений')
-img = load_image()
 
-#st.text(str(e.l()))
-result = st.button('Распознать изображение')
-if result:
-    x = preprocess_image(img)
-    #x = preprocess_input(x)
-    st.text(x.shape)
+#img = load_image()
+
+
+
 
 #if s is not None:
  #   st.download_button(label='скачать',data=s,file_name = 'O.jpg')
