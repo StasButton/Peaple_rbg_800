@@ -151,6 +151,12 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
 model = modelUnet(num_classes,(img_height,img_width, 3))
 
 #--------------------------------------------------
+def preprocess_image(img):
+    img = img.resize((224, 224))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    #x = preprocess_input(x)
+    return x
 
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
@@ -158,8 +164,7 @@ def load_image():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
-        ar = image.img_to_array(img)
-        return image_data, ar
+        return  img
     else:
         return None
 
@@ -181,8 +186,9 @@ n_classes = 2
 
 st.title('Загрузка, скачивание изображений')
 s, ar = load_image()
+x = preprocess_image(img)
 
-st.text(ar.shape)
+st.text(x.shape)
 
 if s is not None:
     st.download_button(label='скачать',data=s,file_name = 'O.jpg')
