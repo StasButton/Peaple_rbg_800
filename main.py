@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 from tensorflow.keras.preprocessing import image
 
-#from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
+from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
 #--------------------------------------------------
 
 from tensorflow.keras import utils
@@ -63,6 +63,7 @@ img = load_image()
 result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
+    x = preprocess_input(x)
     st.text(x.shape)
 
 #if s is not None:
