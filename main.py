@@ -151,13 +151,14 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
 model = modelUnet(num_classes,(img_height,img_width, 3))
 
 #--------------------------------------------------
+
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-        ia = Image.open(io.BytesIO(image_data))
-        return image_data, ia
+        img = Image.open(io.BytesIO(image_data))
+        return image_data, img
     else:
         return None
 
@@ -183,8 +184,10 @@ st.title('Классификации изображений в облаке Stre
 
 
 st.title('Загрузка, скачивание изображений')
-s, ia = load_image()
-st.text(ia.shape)
+s, img = load_image()
+ar = image.img_to_array(img)
+st.text(ar.shape)
+
 if s is not None:
     st.download_button(label='скачать',data=s,file_name = 'O.jpg')
     
