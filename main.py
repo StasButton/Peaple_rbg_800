@@ -146,6 +146,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     
     return model
 
+model = modelUnet(num_classes,(img_height,img_width, 3))
 #--------------------------------------------------
 
 def load_image():
