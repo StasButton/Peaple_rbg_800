@@ -11,7 +11,6 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import utils 
 
 #import os 
-#from PIL import Image 
 #import cv2
 #--------------------------------------------------
 
