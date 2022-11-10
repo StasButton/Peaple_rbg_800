@@ -8,10 +8,10 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activation, MaxPooling2D, Conv2D, BatchNormalization 
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils 
-import numpy as np 
-import os 
-from PIL import Image 
-import cv2
+
+#import os 
+#from PIL import Image 
+#import cv2
 #--------------------------------------------------
 
 def load_image():
