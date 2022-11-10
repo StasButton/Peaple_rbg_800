@@ -10,8 +10,8 @@ from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activat
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils
 
-
-st run u_net.py
+streamlit run u_net.py
+#st run u_net.py
 #import u_net.py
 
 img_width = 192
