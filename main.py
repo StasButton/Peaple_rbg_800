@@ -186,7 +186,7 @@ n_classes = 2
 st.title('Загрузка, скачивание изображений')
 img = load_image()
 #d = e.l()
-st.text(str(e.l())
+st.text(str(e.l()))
 result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
