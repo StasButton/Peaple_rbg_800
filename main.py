@@ -185,7 +185,7 @@ n_classes = 2
 #--->
 
 st.title('Загрузка, скачивание изображений')
-s, ar = load_image()
+img = load_image()
 x = preprocess_image(img)
 
 st.text(x.shape)
