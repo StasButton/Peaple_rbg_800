@@ -10,7 +10,6 @@ from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activat
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils
 
-streamlit run u_net.py
 #st run u_net.py
 #import u_net.py
 
@@ -158,7 +157,8 @@ def load_image():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
         s = Image.open(io.BytesIO(image_data))
-        return image_data 
+        ish = type(s)
+        return image_data, ish
     else:
         return None
 
@@ -182,10 +182,14 @@ st.title('Классификации изображений в облаке Stre
 
 
 
+
 st.title('Загрузка, скачивание изображений')
-s = load_image()
+s, ish = load_image()
+st.text(str(ish))
 if s is not None:
     st.download_button(label='скачать',data=s,file_name = 'O.jpg')
+    
+
 
 
 
