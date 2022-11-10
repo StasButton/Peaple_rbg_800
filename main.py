@@ -190,8 +190,8 @@ x = preprocess_image(img)
 
 st.text(x.shape)
 
-if s is not None:
-    st.download_button(label='скачать',data=s,file_name = 'O.jpg')
+#if s is not None:
+ #   st.download_button(label='скачать',data=s,file_name = 'O.jpg')
     
 
 
