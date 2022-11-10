@@ -10,7 +10,7 @@ from tensorflow.keras.layers import Input, Conv2DTranspose, concatenate, Activat
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras import utils
 
-#import u_net
+import u_net.py
 img_width = 192
 img_height = 256
 num_classes = 2
@@ -175,6 +175,8 @@ n_classes = 2
 #Pred = np.array(Pred)
 #--->
 
+st.
+title('Классификации изображений в облаке Streamlit')
 
 
 
