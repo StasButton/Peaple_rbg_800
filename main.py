@@ -63,7 +63,7 @@ img = load_image()
 result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
-    #x = preprocess_input(x)
+    x = preprocess_input(x)
     st.text(type(x))
 
 #if s is not None:
