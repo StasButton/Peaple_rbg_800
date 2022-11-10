@@ -64,7 +64,7 @@ result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
     #x = preprocess_input(x)
-    st.text(x.shape)
+    st.text(type(x))
 
 #if s is not None:
  #   st.download_button(label='скачать',data=s,file_name = 'O.jpg')
