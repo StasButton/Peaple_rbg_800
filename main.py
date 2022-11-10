@@ -175,8 +175,7 @@ n_classes = 2
 #Pred = np.array(Pred)
 #--->
 
-st.
-title('Классификации изображений в облаке Streamlit')
+st.title('Классификации изображений в облаке Streamlit')
 
 
 
