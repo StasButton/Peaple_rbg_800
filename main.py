@@ -22,8 +22,6 @@ def index2color(ind):
     color = index*255
     return color # Возвращаем цвет пикслея
 
-
-
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 
 #--------------------------------------------------
@@ -69,14 +67,6 @@ if result:
     x = preprocess_image(img)
     st.text(x.shape)
 
-
-
-
-
 #if s is not None:
  #   st.download_button(label='скачать',data=s,file_name = 'O.jpg')
     
-
-
-
-
