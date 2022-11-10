@@ -19,7 +19,7 @@ def index2color(ind):
     return color # Возвращаем цвет пикслея
 
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
-
+model.load_weights('model_weights_P.h5')
 #--------------------------------------------------
 def preprocess_image(img):
     img = img.resize((224, 224))
