@@ -156,9 +156,8 @@ def load_image():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-        s = Image.open(io.BytesIO(image_data))
-        ish = type(s)
-        return image_data, ish
+        ia = Image.open(io.BytesIO(image_data))
+        return image_data, ia
     else:
         return None
 
@@ -184,8 +183,8 @@ st.title('Классификации изображений в облаке Stre
 
 
 st.title('Загрузка, скачивание изображений')
-s, ish = load_image()
-st.text(str(ish))
+s, ia = load_image()
+st.text(ia.shape)
 if s is not None:
     st.download_button(label='скачать',data=s,file_name = 'O.jpg')
     
