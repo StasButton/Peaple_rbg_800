@@ -36,6 +36,7 @@ def load_image():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
+
         result = st.button('Распознать изображение')
         if result:
             x = preprocess_image(img)
@@ -61,8 +62,7 @@ def prediction(i):
 
 st.title('Загрузка, скачивание изображений')
 
-#img = load_image()
-
+load_image()
 
 
 
