@@ -41,7 +41,7 @@ def load_image():
         return None
     
 n_classes = 2
-def prediction(i)
+def prediction(i):
     #Pred = []
     pr = np.array(model.predict(i.reshape(1, img_height,img_width, 3))) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
