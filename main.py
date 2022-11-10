@@ -41,7 +41,7 @@ def load_image():
         if result:
             x = preprocess_image(img)
             st.text(x.shape)
-        return  img
+        #return  img
     else:
         return None
     
