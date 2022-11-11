@@ -55,9 +55,9 @@ def load_image():
         if result:
             x = preprocess_image(img)
             pred_ar = Prediction(x)
-            pred_im = Image.fromarray(pred)
-            st.image(pred_im)
-            #st.text(x.shape)
+            #pred_im = Image.fromarray(pred)
+            #st.image(pred_im)
+            st.text(pred_ar.shape)
         #return  x
     else:
         return None
