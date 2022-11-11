@@ -60,16 +60,16 @@ def load_image():
             unsafe_allow_html=True
             )
             
-            #img = Image.open(io.BytesIO(img.save('img.jpg')))
+            img = Image.open(io.BytesIO(img.save('img.jpg')))
             #st.text(pred_ar.shape)
             #st.text(x.shape)
-        return  image_data#, pred_im
+        return  image_data, img
     else:
         return None
     
 st.title('Загрузка, скачивание изображений')
 
-s = load_image()
+s,i = load_image()
 
 if s is not None:
     st.download_button(label='скачать',data=i,file_name = 'O.jpg')
