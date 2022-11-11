@@ -48,18 +48,16 @@ def load_image():
             pred_ar = Prediction(x)
             pred_im  = image.array_to_img(pred_ar)
             st.image(pred_im)
-            g = pred_im.save('U','.jpg')
+            image_data = pred_im.getvalue()
             
-            #st.text(pred_ar.shape)
-            #st.text(x.shape)
-        return  image_data, g
+        return  image_data
     else:
         return None
     
 st.title('Загрузка, скачивание изображений')
 
-s,i = load_image()
+s = load_image()
 
 if s is not None:
-    st.download_button(label='скачать', data=i, 'JPEG')
+    st.download_button(label='скачать', data=s, 'JPEG')
     #st.download_button(label='скачать',data=i,file_name = 'O.jpg')
