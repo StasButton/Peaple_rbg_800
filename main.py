@@ -29,24 +29,9 @@ def preprocess_image(img):
     x = np.expand_dims(x, axis=0)
     #x = preprocess_input(x)
     return x
-
-def load_image():
-    uploaded_file = st.file_uploader(label='Выберите изображение')
-    if uploaded_file is not None:
-        image_data = uploaded_file.getvalue()
-        st.image(image_data)
-        img = Image.open(io.BytesIO(image_data))
-
-        result = st.button('Распознать изображение')
-        if result:
-            x = preprocess_image(img)
-            st.text(x.shape)
-        #return  img
-    else:
-        return None
     
 n_classes = 2
-def prediction(i):
+def Prediction(i):
     #Pred = []
     pr = np.array(model.predict(i.reshape(1, img_height,img_width, 3))) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
@@ -58,7 +43,22 @@ def prediction(i):
     return pr1
     #Pred.append(pr1)
     #Pred = np.array(Pred)
+    
+def load_image():
+    uploaded_file = st.file_uploader(label='Выберите изображение')
+    if uploaded_file is not None:
+        image_data = uploaded_file.getvalue()
+        st.image(image_data)
+        img = Image.open(io.BytesIO(image_data))
 
+        result = st.button('Распознать изображение')
+        if result:
+            x = preprocess_image(img)
+            pred = Prediction(x)
+            st.text(x.shape)
+        return  x
+    else:
+        return None
 
 st.title('Загрузка, скачивание изображений')
 
