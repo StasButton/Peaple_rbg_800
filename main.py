@@ -33,8 +33,8 @@ def preprocess_image(img):
 n_classes = 2
 def Prediction(i):
     #Pred = []
-    pr = np.array(model.predict(i.reshape(1, img_height,img_width, 3))) # Предиктим картинку
-    pr = pr.reshape(-1, 2) # Решейпим предикт
+    #pr = np.array(model.predict(i.reshape(1, img_height,img_width, 3))) # Предиктим картинку
+    pr = i.reshape(-1, 2) # Решейпим предикт
     pr1 = [] # Пустой лист под сегментированную картинку из predicta
     for q in pr: 
        pr1.append(index2color(q)) # Переводим индекс в писксель
