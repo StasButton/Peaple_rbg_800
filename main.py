@@ -48,7 +48,20 @@ def load_image():
             pred_ar = Prediction(x)
             pred_im  = image.array_to_img(pred_ar)
             st.image(pred_im)
-            pred_im.save('U','.jpg')
+            #pred_im.save('U','.jpg')
+            
+            st.write(f'''
+            <a target="_self" href = f'<a href="data:file/jpg;base64,{pred_im}">Download jpg file</a>'
+                <button>
+                    Please login via Google
+                </button>
+            </a>
+            ''',
+            unsafe_allow_html=True
+            )
+            
+            
+            
             
             
             #img = Image.open(io.BytesIO(img.save('img.jpg')))
