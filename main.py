@@ -52,16 +52,16 @@ def load_image():
             
             #st.text(pred_ar.shape)
             #st.text(x.shape)
-        return image_data ,D
+        return D
     else:
         return None
 
 st.title('Загрузка, скачивание изображений')
 
-s,_ = load_image()
+s = load_image()
 
 
 
 if s is not None:
-    st.download_button(label='скачать',data=s,file_name = 'O.jpg')
+ #   st.download_button(label='скачать',data=s,file_name = 'O.jpg')
     
