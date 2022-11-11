@@ -48,7 +48,7 @@ def load_image():
             x = preprocess_image(img)
             pred_ar = Prediction(x)
             pred_ar = pred_ar.reshape(img_height,img_width)
-            #pred_im = Image.fromarray(pred_ar)
+            pred_im = Image.fromarray(pred_ar)
             #st.image(pred_im)
             st.text(pred_ar.shape)
             st.text(x.shape)
