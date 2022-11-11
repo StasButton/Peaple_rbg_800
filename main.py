@@ -68,6 +68,7 @@ def load_image():
         result = st.button('Заменить фон')
         if result:
             x = preprocess_image(img)
+            st.text(x.shape)
             pred_ar = Prediction(x)
             pred_im  = image.array_to_img(pred_ar)
             st.image(pred_im)
