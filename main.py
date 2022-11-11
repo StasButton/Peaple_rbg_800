@@ -41,7 +41,7 @@ def pedict2(fg,bg):
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
     for i , q in enumerate(pr): #start =1
-            if np.argmax(q) > 0.5:
+        if np.argmax(q) > 0.5:
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
