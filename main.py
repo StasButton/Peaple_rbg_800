@@ -3,12 +3,9 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 from tensorflow.keras.preprocessing import image
-
 #from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
 #--------------------------------------------------
-
 from tensorflow.keras import utils
-
 import u_net
 
 img_width = 192
@@ -29,7 +26,6 @@ def preprocess_image(img):
     x = np.expand_dims(x, axis=0)
     return x
     
-n_classes = 2
 def Prediction(i):
     pr = np.array(model.predict(i)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
@@ -52,7 +48,7 @@ def load_image():
             x = preprocess_image(img)
             pred_ar = Prediction(x)
             pred_ar = pred_ar.reshape(img_height,img_width)
-            pred_im = Image.fromarray(pred_ar)
+            #pred_im = Image.fromarray(pred_ar)
             #st.image(pred_im)
             st.text(pred_ar.shape)
             st.text(x.shape)
