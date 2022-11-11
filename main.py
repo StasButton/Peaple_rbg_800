@@ -45,8 +45,8 @@ def load_image():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
+        
         img = Image.open(io.BytesIO(image_data))
-
         result = st.button('Распознать изображение')
         if result:
             x = preprocess_image(img)
