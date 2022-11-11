@@ -39,7 +39,7 @@ def Prediction(i):
     for q in pr: 
        pr1.append(index2color(q)) # Переводим индекс в писксель
     pr1 = np.array(pr1)
-    pr1 = pr1.reshape(img_height,img_width,1)
+    #pr1 = pr1.reshape(img_height,img_width,1)
     return pr1
     #Pred.append(pr1)
     #Pred = np.array(Pred)
