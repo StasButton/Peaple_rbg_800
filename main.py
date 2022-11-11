@@ -49,15 +49,15 @@ def load_image():
             pred_ar = Prediction(x)
             pred_im  = image.array_to_img(pred_ar)
             st.image(pred_im)
-            st.text(pred_ar.shape)
-            st.text(x.shape)
-        return pred_im
+            #st.text(pred_ar.shape)
+            #st.text(x.shape)
+        return image_data ,pred_im
     else:
         return None
 
 st.title('Загрузка, скачивание изображений')
 
-s = load_image()
+s,pr = load_image()
 
 
 
