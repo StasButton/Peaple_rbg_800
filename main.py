@@ -54,10 +54,10 @@ def load_image():
         result = st.button('Распознать изображение')
         if result:
             x = preprocess_image(img)
-            pred_ar = Prediction(x)
+            #pred_ar = Prediction(x)
             #pred_im = Image.fromarray(pred)
             #st.image(pred_im)
-            st.text(pred_ar.shape)
+            st.text(x.shape)
         #return  x
     else:
         return None
