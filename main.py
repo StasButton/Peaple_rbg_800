@@ -37,7 +37,7 @@ def Prediction(i):
 
 #def pedict2(fg,bg):
     '''
-    pr = np.array(model.predict(fg.reshape(1, img_height,img_width, 3))) # Предиктим картинку
+    pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
     for i , q in enumerate(pr): #start =1
@@ -58,21 +58,24 @@ def load_image():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
+        img = Image.open(io.BytesIO(image_data))
+        x = preprocess_image(img)
         
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
             st.image(image_data_bg)
-        img = Image.open(io.BytesIO(image_data))
-        
-        result = st.button('Заменить фон')
-        if result:
-            x = preprocess_image(img)
-            st.text(x.shape)
-            pred_ar = Prediction(x)
-            pred_im  = image.array_to_img(pred_ar)
-            st.image(pred_im)
-            #image_data = pred_im.getvalue()
+            img_bg = Image.open(io.BytesIO(image_data_bg))
+            x_bg = preprocess_image(img_bg)
+
+            result = st.button('Заменить фон')
+            if result:
+            #if (uploaded_file is not None) and (uploaded_file_bg is not None):
+                st.text(x.shape)
+                pred_ar = Prediction(x) #  pedict2(fg,bg)
+                pred_im  = image.array_to_img(pred_ar)
+                st.image(pred_im)
+                #image_data = pred_im.getvalue()
             
         return  image_data
     else:
