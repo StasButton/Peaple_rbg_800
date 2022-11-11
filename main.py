@@ -66,7 +66,7 @@ def load_image():
             pred_ar = Prediction(x)
             pred_im  = image.array_to_img(pred_ar)
             st.image(pred_im)
-            image_data = pred_im.getvalue()
+            #image_data = pred_im.getvalue()
             
         return  image_data
     else:
