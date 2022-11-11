@@ -35,8 +35,8 @@ def Prediction(i):
     return pr1
 #++++++++++++++++++++++++++++++++++++++++++++++
 
-#def pedict2(fg,bg):
-    '''
+def pedict2(fg,bg):
+    #'''
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
@@ -45,7 +45,7 @@ def Prediction(i):
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
-    '''
+    #'''
 #++++++++++++++++++++++++++++++++++++++++++++++++ 
 def bgload():
     uploaded_file = st.file_uploader(label='Выберите фон')
