@@ -48,7 +48,7 @@ def load_image():
             pred_ar = Prediction(x)
             pred_im  = image.array_to_img(pred_ar)
             st.image(pred_im)
-            pred_im.save('U',".jpg")
+            pred_im.save('U','.jpg')
             
             #st.text(pred_ar.shape)
             #st.text(x.shape)
