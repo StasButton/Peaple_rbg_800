@@ -55,16 +55,16 @@ def load_image():
             #st.image(pred_im)
             st.text(pred_ar.shape)
             st.text(x.shape)
-        #return  x
+        return img
     else:
         return None
 
 st.title('Загрузка, скачивание изображений')
 
-load_image()
+s = load_image()
 
 
 
-#if s is not None:
- #   st.download_button(label='скачать',data=s,file_name = 'O.jpg')
+if s is not None:
+    st.download_button(label='скачать',data=s,file_name = 'O.jpg')
     
