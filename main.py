@@ -48,12 +48,11 @@ def load_image():
             pred_ar = Prediction(x)
             pred_im  = image.array_to_img(pred_ar)
             st.image(pred_im)
-            #pred_im.save('U','.jpg')
+            g = pred_im.save('U','.jpg')
             
-            img = Image.open(io.BytesIO(img.save('img.jpg')))
             #st.text(pred_ar.shape)
             #st.text(x.shape)
-        return  image_data, img
+        return  image_data, g
     else:
         return None
     
