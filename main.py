@@ -52,13 +52,13 @@ def load_image():
             
             #st.text(pred_ar.shape)
             #st.text(x.shape)
-        return image_data #,pred_im
+        return image_data ,D
     else:
         return None
 
 st.title('Загрузка, скачивание изображений')
 
-s = load_image()
+s,D = load_image()
 
 
 
