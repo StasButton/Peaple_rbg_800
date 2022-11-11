@@ -50,15 +50,16 @@ def load_image():
             st.image(pred_im)
             pred_im.save('U','.jpg')
             
+            img = Image.open(io.BytesIO(img.save('img.jpg')))
             #st.text(pred_ar.shape)
             #st.text(x.shape)
-        return  image_data
+        return  image_data,img
     else:
         return None
     
 st.title('Загрузка, скачивание изображений')
 
-s = load_image()
+s,i = load_image()
 
 if s is not None:
-    st.download_button(label='скачать',data='U.jpg',file_name = 'O.jpg')
+    st.download_button(label='скачать',data=i,file_name = 'O.jpg')
