@@ -72,7 +72,7 @@ def load_image():
             if result:
             #if (uploaded_file is not None) and (uploaded_file_bg is not None):
                 st.text(x.shape)
-                pred_ar = Prediction(x) #  pedict2(fg,bg)
+                pred_ar = pedict2(x,x_bg) #Prediction(x) #  pedict2(x,x_bg)
                 pred_im  = image.array_to_img(pred_ar)
                 st.image(pred_im)
                 #image_data = pred_im.getvalue()
