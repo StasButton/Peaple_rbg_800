@@ -62,5 +62,5 @@ s,pr = load_image()
 
 
 if s is not None:
-    st.download_button(label='скачать',data=s,file_name = 'O.jpg')
+    st.download_button(label='скачать',data=pr,file_name = 'O.jpg')
     
