@@ -50,7 +50,7 @@ def load_image():
             #pred_ar = pred_ar.reshape(img_height,img_width)
             pred_im  = image.array_to_img(pred_ar)
             #pred_im = Image.fromarray(pred_ar)
-            #st.image(pred_im)
+            st.image(pred_im)
             st.text(pred_ar.shape)
             st.text(x.shape)
         return image_data
