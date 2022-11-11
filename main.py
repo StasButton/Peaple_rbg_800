@@ -36,8 +36,11 @@ def Prediction(i):
     
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
-    return  uploaded_file
-    '''
+    x = preprocess_image(img)
+    pred_im  = image.array_to_img(x)
+    st.image(pred_im)
+    #return  uploaded_file
+'''
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
@@ -55,7 +58,7 @@ def load_image():
         return  image_data
     else:
         return None
-    '''
+'''
 st.title('Загрузка, скачивание изображений')
 
 #s = load_image()
