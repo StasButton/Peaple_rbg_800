@@ -27,12 +27,10 @@ def preprocess_image(img):
     img = img.resize((192, 256))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
-    #x = preprocess_input(x)
     return x
     
 n_classes = 2
 def Prediction(i):
-    #Pred = []
     #pr = np.array(model.predict(i.reshape(1, img_height,img_width, 3))) # Предиктим картинку
     pr = i.reshape(-1, 2) # Решейпим предикт
     pr1 = [] # Пустой лист под сегментированную картинку из predicta
@@ -41,8 +39,6 @@ def Prediction(i):
     pr1 = np.array(pr1)
     #pr1 = pr1.reshape(img_height,img_width,1)
     return pr1
-    #Pred.append(pr1)
-    #Pred = np.array(Pred)
     
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
@@ -58,6 +54,7 @@ def load_image():
             #pred_im = Image.fromarray(pred)
             #st.image(pred_im)
             st.text(pred_ar.shape)
+            st.text(x.shape)
         #return  x
     else:
         return None
