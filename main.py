@@ -58,7 +58,7 @@ def load_image():
 
 st.title('Загрузка, скачивание изображений')
 
-s,D = load_image()
+s,_ = load_image()
 
 
 
