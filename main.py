@@ -59,8 +59,13 @@ def load_image():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
         
+        uploaded_file_bg = st.file_uploader(label='Выберите фон')
+        if uploaded_file_bg is not None:
+            image_data_bg = uploaded_file_bg.getvalue()
+            st.image(image_data_bg)
         img = Image.open(io.BytesIO(image_data))
-        result = st.button('Распознать изображение')
+        
+        result = st.button('Заменить фон')
         if result:
             x = preprocess_image(img)
             pred_ar = Prediction(x)
@@ -74,6 +79,7 @@ def load_image():
     
 st.title('Загрузка, скачивание изображений')
 
-s = load_image()
-bgload()
+#s = 
+load_image()
+#gload()
 
