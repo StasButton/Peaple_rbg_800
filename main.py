@@ -74,8 +74,5 @@ def load_image():
 st.title('Загрузка, скачивание изображений')
 
 s = load_image()
-bgload()
+#bgload()
 
-if s is not None:
-    st.download_button(label='скачать', data=s, 'JPEG')
-    #st.download_button(label='скачать',data=i,file_name = 'O.jpg')
