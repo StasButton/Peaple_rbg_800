@@ -51,7 +51,7 @@ def load_image():
             st.image(pred_im)
             #st.text(pred_ar.shape)
             #st.text(x.shape)
-        return image_data ,pred_im
+        return image_data ,pred_ar
     else:
         return None
 
