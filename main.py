@@ -71,10 +71,11 @@ def load_image():
             result = st.button('Заменить фон')
             if result:
             #if (uploaded_file is not None) and (uploaded_file_bg is not None):
-                st.text(x.shape)
+                #
                 pred_ar = pedict2(x,x_bg)    #Prediction(x)
-                
                 pred_im  = utils.array_to_img(pred_ar)
+                st.image(pred_im)
+                
                 img_byte_arr = io.BytesIO(ar)
                 #img.save(img_byte_arr, format='PNG')
                 #image_data = pred_im.getvalue()
