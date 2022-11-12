@@ -85,5 +85,5 @@ st.title('Загрузка, скачивание изображений')
 
 s = load_image()
 if s is not None:
-    st.download_button(label = 'скачать',data= image_data,file_name='Q.jpg')
+    st.download_button(label = 'скачать',data= s,file_name='Q.jpg')
 
