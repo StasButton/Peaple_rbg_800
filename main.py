@@ -76,11 +76,11 @@ def load_image():
                 pred_im  = utils.array_to_img(pred_ar)
                 st.image(pred_im)
                 
-                img_byte_arr = io.BytesIO(ar)
+                #img_byte_arr = io.BytesIO(ar)
                 #img.save(img_byte_arr, format='PNG')
                 #image_data = pred_im.getvalue()
             
-        return  img_byte_arr #image_data
+        return  image_data
     else:
         return None
     
