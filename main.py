@@ -75,10 +75,11 @@ def load_image():
                 pred_ar = pedict2(x,x_bg)    #Prediction(x)
                 
                 pred_im  = utils.array_to_img(pred_ar)
-                st.image(pred_im)
+                img_byte_arr = io.BytesIO(ar)
+                img.save(img_byte_arr, format='PNG')
                 #image_data = pred_im.getvalue()
             
-        return  image_data
+        return  img_byte_arr #image_data
     else:
         return None
     
@@ -86,5 +87,5 @@ st.title('Загрузка, скачивание изображений')
 
 s = load_image()
 if s is not None:
-    st.download_button(label = 'скачать',data= s,file_name='Q.jpg')
+    st.download_button(label = 'скачать',data= s,file_name='Q.png')
 
