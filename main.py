@@ -24,7 +24,8 @@ def preprocess_image(img):
     x = np.expand_dims(x, axis=0)
     return x
     
-def Prediction(i):
+#def Prediction(i):
+    '''
     pr = np.array(model.predict(i)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     pr1 = [] # Пустой лист под сегментированную картинку из predicta
@@ -33,10 +34,9 @@ def Prediction(i):
     pr1 = np.array(pr1)
     pr1 = pr1.reshape(img_height,img_width,1)
     return pr1
+    '''
 #++++++++++++++++++++++++++++++++++++++++++++++
-
 def pedict2(fg,bg):
-    #'''
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
@@ -45,7 +45,6 @@ def pedict2(fg,bg):
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
-    #'''
 #++++++++++++++++++++++++++++++++++++++++++++++++ 
 def bgload():
     uploaded_file = st.file_uploader(label='Выберите фон')
@@ -84,7 +83,7 @@ def load_image():
     
 st.title('Загрузка, скачивание изображений')
 
-#s = 
-load_image()
-#gload()
+s = load_image()
+if s is not None:
+    st.download_button(label = 'скачать',data= image_data,file_name='Q.jpg')
 
