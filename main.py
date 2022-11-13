@@ -76,7 +76,7 @@ def load_image():
             #if result1:
              #   pred_ar = pedict2(x,x_bg) 
                  #load_result(pred_ar)
-                s = 1
+                
                 
             
         #return  sd
