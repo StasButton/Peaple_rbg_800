@@ -51,8 +51,9 @@ def loadresult(x,x_bg):
         im.save(f, format='JPEG')
         data = f.getvalue()
     return data 
-        
-global data = io.BytesIO()
+#++++++++++++++++++++++++++++++++++++++++++++++    
+global data
+data = io.BytesIO()
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
     
