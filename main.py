@@ -62,7 +62,7 @@ def load_image():
             x_bg = x_bg.reshape(-1, 3)
 
             result = st.button('Заменить фон')
-            if result is not None:
+            if result:
                 pred_ar = pedict2(x,x_bg) 
                 im = utils.array_to_img(pred_ar)
                 pred_ar_int = ar.astype(np.uint8)
