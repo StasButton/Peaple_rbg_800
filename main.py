@@ -72,7 +72,7 @@ def load_image():
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
-
+        return x,x_bg 
     else:
         return None
     
@@ -80,7 +80,7 @@ def load_image():
     
 st.title('Замена фона на фотографиях людей')
 
-s = load_image()
+x,x_bg = load_image()
 
 ls = ['','']
 result = st.button('Заменить фон')
