@@ -92,8 +92,8 @@ col1, col2= st.columns(2)
 with col1:
     st.title('Зам')
     uploaded_file = st.file_uploader(label='Выберите изображение')
-    #image_data = uploaded_file.getvalue()
-    #st.image(image_data)
+    image_data = uploaded_file.getvalue()
+    st.image(image_data)
 #col2.write("This is column 2")
 with col2:
     #uploaded_file_bg = st.file_uploader(label='Выберите фон')
