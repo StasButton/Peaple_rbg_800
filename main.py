@@ -88,7 +88,7 @@ with col3:
         result = st.button('Заменить фон')
         if result:
             c = a + b
-            v = c
+            v = c.copy()
             st.text(c); st.text(v);
             #data = loadresult(x,x_bg)
         result1 = st.button('Скачать')
