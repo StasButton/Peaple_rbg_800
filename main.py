@@ -79,7 +79,7 @@ def load_image():
                 pred_ar_int = pred_ar.astype(np.uint8)
                 im = Image.fromarray(pred_ar_int)
 
-                st.image(im)
+                #st.image(im)
                 
                 #data = loadresult(x,x_bg)
                 #image_data_bg = im
