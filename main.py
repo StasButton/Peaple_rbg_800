@@ -81,6 +81,7 @@ with col2:
 with col3:
         a = 3
         b = 4
+        global c
         c = 0
         result = st.button('Заменить фон')
         if result:
