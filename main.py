@@ -84,7 +84,7 @@ st.title('Замена фона на фотографиях людей')
 
 b = load_image()
 
-st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
+#st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
 
 
 
