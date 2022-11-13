@@ -96,11 +96,9 @@ with col3:
                 data = f.getvalue()
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
             
-            if(len(st.session_state.log) != 0):
-                st.image(st.session_state.log[-1])
+        if(len(st.session_state.log) > 1):
+            st.image(st.session_state.log[-1])
 
-            
-  
 #---------------------------
     
 #s = load_image()
