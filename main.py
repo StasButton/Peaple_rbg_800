@@ -70,12 +70,14 @@ def load_image():
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
 
-            result1 = st.button('Заменить фон')
-            result2 = st.button('Заменить   фон')
+            result = st.button('Заменить фон')
             st.text(result1)
-            #if result1:
-             #   pred_ar = pedict2(x,x_bg) 
-                 #load_result(pred_ar)
+            if result1:
+                pred_ar = pedict2(x,x_bg) 
+                load_result(pred_ar)
+            else:
+                load_result(pred_ar)
+                
                 
                 
             
