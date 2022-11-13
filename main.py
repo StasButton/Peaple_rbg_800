@@ -81,7 +81,7 @@ def load_image():
                 #st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
                 st.button('Заменить фон2')
                 #st.image(ls[1])
-        return x,x_bg 
+        #return x,x_bg 
     else:
         return None
     
