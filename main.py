@@ -41,11 +41,8 @@ def bgload():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
         
-def load_result(ar):
-    im  = utils.array_to_img(ar)
-    pred_ar_int = ar.astype(np.uint8)
-    im = Image.fromarray(pred_ar_int)
-    return im          
+
+        
     
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
@@ -67,8 +64,10 @@ def load_image():
             result = st.button('Заменить фон')
             if result:
                 pred_ar = pedict2(x,x_bg) 
-                im = load_result(pred_ar)
-                
+                im = utils.array_to_img(pred_ar)
+                pred_ar_int = ar.astype(np.uint8)
+                im = Image.fromarray(pred_ar_int)
+
             st.image(im)
             with io.BytesIO() as f:
                      im.save(f, format='JPEG')
