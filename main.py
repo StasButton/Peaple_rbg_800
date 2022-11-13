@@ -79,14 +79,18 @@ with col2:
         x_bg = x_bg.reshape(-1, 3)
 
 with col3:
-        
+        a = 3
+        b = 4
+        c = 0
         result = st.button('Заменить фон')
         if result:
-            #st.text('надо')
-            data = loadresult(x,x_bg)
-
-            #st.text('нахер')
-            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
+            c = a + b
+            st.text(c)
+            #data = loadresult(x,x_bg)
+        result1 = st.button('Заменить фон')
+        if result1:
+            st.text('нахер')
+            #st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
   
 #---------------------------
     
