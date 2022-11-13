@@ -27,7 +27,7 @@ def preprocess_image(img):
 #++++++++++++++++++++++++++++++++++++++++++++++
 
 def pedict2(fg,bg):
-    pr = np.array(model.predict(fg)) # Предиктим картинку
+    #pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
     for i , q in enumerate(pr): #start =1
@@ -43,7 +43,7 @@ def bgload():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
 def loadresult(x,x_bg): 
-    #pred_ar = pedict2(x,x_bg) 
+    pred_ar = pedict2(x,x_bg) 
     im = utils.array_to_img(pred_ar)
     pred_ar_int = pred_ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
