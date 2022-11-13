@@ -77,9 +77,8 @@ def load_image():
     else:
         return None
     
-st.title('Загрузка, скачивание изображений')
+st.title('Замена фона на фотографиях людей')
 
 load_image()
-#if s is not None:
- #   st.download_button(label = 'скачать',data= s,file_name='Q.png')
+
 
