@@ -51,7 +51,7 @@ def loadresult(x,x_bg):
     with io.BytesIO() as f:
         im.save(f, format='JPEG')
         data = f.getvalue()
-    return data
+    return data, im
         
     
 def load_image():
@@ -66,14 +66,19 @@ def load_image():
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
-            st.image(image_data_bg)
+            
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
-
+            st.image(image_data_bg)
             result = st.button('Заменить фон')
+            #sig = False
             if result:
-                st.download_button(label='Скачать',data = loadresult(x,x_bg),file_name='change_bg.jpg')
+                #sig = True
+                d,image_data_bg = loadresult(x,x_bg)
+                st.download_button(label='Скачать',data = d,file_name='change_bg.jpg')
+            #if sig:
+                
                  
                 
              #if sig == True:
