@@ -52,7 +52,6 @@ def loadresult(x,x_bg):
     with io.BytesIO() as f:
         im.save(f, format='JPEG')
         data = f.getvalue()
-        #ls = [data,im]
     return data 
         
     
