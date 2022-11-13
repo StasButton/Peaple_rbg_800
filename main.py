@@ -49,7 +49,7 @@ def load_result(im,ar):
          im.save(f, format='JPEG')
          data = f.getvalue()
          res = st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
-    return res
+    
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
     
@@ -72,12 +72,8 @@ def load_image():
             if result:
                 pred_ar = pedict2(x,x_bg) 
                 pred_im  = utils.array_to_img(pred_ar)
-                
-                res = load_result(pred_im,pred_ar)
-                
-
-                
-
+                load_result(pred_im,pred_ar)
+                result = True
             
         #return  sd
     else:
@@ -86,6 +82,4 @@ def load_image():
 st.title('Замена фона на фотографиях людей')
 
 load_image()
-
-
 
