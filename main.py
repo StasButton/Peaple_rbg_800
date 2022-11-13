@@ -25,7 +25,7 @@ def preprocess_image(img):
     return x
 
 #++++++++++++++++++++++++++++++++++++++++++++++
-'''
+
 def pedict2(fg,bg):
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
@@ -35,7 +35,7 @@ def pedict2(fg,bg):
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
-'''
+
 #++++++++++++++++++++++++++++++++++++++++++++++++ 
 def bgload():
     uploaded_file = st.file_uploader(label='Выберите фон')
