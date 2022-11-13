@@ -15,8 +15,8 @@ def index2color(ind):
     color = index*255
     return color # Возвращаем цвет пикслея
 
-model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
-model.load_weights('model_weights_P.h5')
+#model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
+#model.load_weights('model_weights_P.h5')
 #--------------------------------------------------
 def preprocess_image(img):
     img = img.resize((192, 256))
@@ -25,6 +25,7 @@ def preprocess_image(img):
     return x
 
 #++++++++++++++++++++++++++++++++++++++++++++++
+'''
 def pedict2(fg,bg):
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
@@ -34,6 +35,7 @@ def pedict2(fg,bg):
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
+'''
 #++++++++++++++++++++++++++++++++++++++++++++++++ 
 def bgload():
     uploaded_file = st.file_uploader(label='Выберите фон')
