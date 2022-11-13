@@ -88,7 +88,7 @@ def load_image():
 '''    
 st.title('Замена фона на фотографиях людей')
 #-----------------------------
-col1, col2= st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
     #col1.write("фото человека")
     uploaded_file = st.file_uploader(label='фото человека')
@@ -107,7 +107,13 @@ with col2:
         img_bg = Image.open(io.BytesIO(image_data_bg))
         x_bg = preprocess_image(img_bg)
         x_bg = x_bg.reshape(-1, 3)
-    
+        result = st.button('Заменить фон')
+        if result:
+            data = loadresult(x,x_bg)
+with col2:
+        result = st.button('Заменить фон')
+        if result:
+            data = loadresult(x,x_bg)
   
 #---------------------------
     
