@@ -47,10 +47,7 @@ def load_result(ar):
     pred_ar_int = ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
                
-    with io.BytesIO() as f:
-         im.save(f, format='JPEG')
-         data = f.getvalue()
-         #st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
+
     
     
 def load_image():
@@ -71,13 +68,17 @@ def load_image():
             x_bg = x_bg.reshape(-1, 3)
 
             result = st.button('Заменить фон')
+            
             st.text(result1)
-            if result1:
+            if result:
                 pred_ar = pedict2(x,x_bg) 
                 load_result(pred_ar)
-            else:
-                load_result(pred_ar)
                 
+            #if result:
+            with io.BytesIO() as f:
+                 im.save(f, format='JPEG')
+                 data = f.getvalue()
+            st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
                 
                 
             
