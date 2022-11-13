@@ -27,7 +27,7 @@ def preprocess_image(img):
 #++++++++++++++++++++++++++++++++++++++++++++++
 
 def pedict2(fg,bg):
-    #pr = np.array(model.predict(fg)) # Предиктим картинку
+    pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
     for i , q in enumerate(pr): #start =1
@@ -76,7 +76,7 @@ def load_image():
             result = st.button('Заменить фон')
             if result:
                 s = 1
-                #ls = loadresult(x,x_bg)
+                ls = loadresult(x,x_bg)
                 #st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
     else:
         return None
