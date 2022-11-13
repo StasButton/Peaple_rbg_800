@@ -74,7 +74,7 @@ def load_image():
             result = st.button('Заменить фон')
             #sig = False
             if result:
-                data = loadresult()
+                #data = loadresult()
                 '''
                 pred_ar = pedict2(x,x_bg) 
                 im = utils.array_to_img(pred_ar)
