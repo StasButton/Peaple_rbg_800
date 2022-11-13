@@ -72,9 +72,7 @@ def load_image():
                 pred_ar = pedict2(x,x_bg) 
                 pred_im  = utils.array_to_img(pred_ar)
                 
-                load_result(pred_im,pred_ar)
-
-                
+                res = load_result(pred_im,pred_ar)
                 if res:
                     load_result(pred_im,pred_ar)
                 
