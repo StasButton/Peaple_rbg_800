@@ -6,6 +6,9 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras import utils
 import u_net
 
+if 'log' not in st.session_state:
+    st.session_state.log = []
+
 img_width = 192
 img_height = 256
 num_classes = 2
@@ -82,8 +85,19 @@ with col3:
     
         result = st.button('Заменить фон')
         if result:
-            data = loadresult(x,x_bg)
-            #st.text(c)
+            pred_ar = pedict2(x,x_bg) 
+            im = utils.array_to_img(pred_ar)
+            pred_ar_int = pred_ar.astype(np.uint8)
+            im = Image.fromarray(pred_ar_int)
+            st.image(im)
+            st.session_state.log.append(im)
+            with io.BytesIO() as f:
+                im.save(f, format='JPEG')
+                data = f.getvalue()
+            
+            
+            #data = loadresult(x,x_bg)
+            st.session_state.log.append(data)
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
   
 #---------------------------
