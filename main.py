@@ -85,10 +85,10 @@ x,x_bg = load_image()
 ls = ['','']
 result = st.button('Заменить фон')
 if result:
-ls = loadresult(x,x_bg)
-st.image(ls[1])
-#st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
-st.button('Заменить фон2')
-#st.image(ls[1])
+    ls = loadresult(x,x_bg)
+    st.image(ls[1])
+    #st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
+    st.button('Заменить фон2')
+    #st.image(ls[1])
 
 
