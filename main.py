@@ -71,9 +71,9 @@ def load_image():
             if result:
                 pred_ar = pedict2(x,x_bg) 
                 pred_im  = utils.array_to_img(pred_ar)
-                
+                st.text(result)
                 res = load_result(pred_im,pred_ar)
-                st.text(res)
+                
 
                 
 
