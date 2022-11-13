@@ -82,7 +82,7 @@ def load_image():
                 #st.image(ls[1])
             
             #st.image(im) 
-       return im
+       #return im
     else:
         return None
     
