@@ -40,7 +40,8 @@ def bgload():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-def load_result(im,ar):
+def load_result(ar):
+    im  = utils.array_to_img(ar)
     st.image(im)
     pred_ar_int = ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
@@ -71,8 +72,7 @@ def load_image():
             st.text(result1)
             if result1:
                 pred_ar = pedict2(x,x_bg) 
-                pred_im  = utils.array_to_img(pred_ar)
-                load_result(pred_im,pred_ar)
+                load_result(pred_ar)
                 
             
         #return  sd
