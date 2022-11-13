@@ -46,6 +46,9 @@ def bgload():
 global data
 data = io.BytesIO()
 st.title('Замена фона на фотографиях людей')
+#----------------------------
+#st.sidebar.selectbox()
+
 #-----------------------------
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -86,6 +89,13 @@ with col3:
             b = False
             st.image(st.session_state.log[-1])
         st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
+#--------------------------------------------------------------------------------------
+
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
 
 
 
