@@ -90,14 +90,14 @@ st.title('Замена фона на фотографиях людей')
 #-----------------------------
 col1, col2= st.columns(2)
 with col1:
-    col1.write("фото человека")
-    uploaded_file = st.file_uploader()
+    #col1.write("фото человека")
+    uploaded_file = st.file_uploader(label='фото человека')
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
     
 with col2:
-    col2.write("фон")
+    #col2.write("фон")
     uploaded_file_bg = st.file_uploader(label='Выберите фон')
     if uploaded_file_bg is not None:
         image_data_bg = uploaded_file_bg.getvalue()
