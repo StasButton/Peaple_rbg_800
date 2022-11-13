@@ -82,16 +82,14 @@ def load_image():
                     im.save(f, format='JPEG')
                     data = f.getvalue()
                 #data = loadresult() 
-            if data is not None:
-                st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
-                
-                
-            
-        #return  sd
+
+        return  data
     else:
         return None
     
 st.title('Замена фона на фотографиях людей')
 
-load_image()
+s = load_image()
+if s is not None:
+                st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
 
