@@ -40,12 +40,13 @@ def bgload():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-def loadresult():
+def loadresult(): 
     pred_ar = pedict2(x,x_bg) 
     im = utils.array_to_img(pred_ar)
     pred_ar_int = ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
     st.image(im)
+    sig = True
                 
     with io.BytesIO() as f:
         im.save(f, format='JPEG')
@@ -71,19 +72,26 @@ def load_image():
             x_bg = x_bg.reshape(-1, 3)
 
             result = st.button('Заменить фон')
+            sig = False
             if result:
+                data = loadresult()
+                '''
                 pred_ar = pedict2(x,x_bg) 
                 im = utils.array_to_img(pred_ar)
                 pred_ar_int = pred_ar.astype(np.uint8)
                 im = Image.fromarray(pred_ar_int)
                 st.image(im)
                 
+                
                 with io.BytesIO() as f:
                     im.save(f, format='JPEG')
                     data = f.getvalue()
                 #data = loadresult() 
+                '''
+             #if sig == True:
+              #  st.image(im)
 
-        return  data
+        #return  data
     else:
         return None
     
