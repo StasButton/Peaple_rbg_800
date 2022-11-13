@@ -91,6 +91,11 @@ with col3:
         st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
 #--------------------------------------------------------------------------------------
 
+st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
+
 with st.sidebar:
     add_radio = st.radio(
         "Choose a shipping method",
