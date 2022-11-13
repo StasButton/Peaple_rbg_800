@@ -70,8 +70,8 @@ def load_image():
                 pred_ar = pedict2(x,x_bg) 
                 im = load_result(pred_ar)
                 
-            if result:
-                with io.BytesIO() as f:
+            
+            with io.BytesIO() as f:
                      im.save(f, format='JPEG')
                      data = f.getvalue()
             st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
