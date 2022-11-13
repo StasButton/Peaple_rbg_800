@@ -110,8 +110,8 @@ with col2:
         result = st.button('Заменить фон')
         if result:
             data = loadresult(x,x_bg)
-with col2:
-        st.image(image_data_bg)
+with col3:
+        #st.image(image_data_bg)
         result = st.button('Заменить фон')
         if result:
             data = loadresult(x,x_bg)
