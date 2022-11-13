@@ -45,11 +45,12 @@ def load_result(ar):
     st.image(im)
     pred_ar_int = ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
-                
+    '''           
     with io.BytesIO() as f:
          im.save(f, format='JPEG')
          data = f.getvalue()
-         res = st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
+         st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
+    '''
     
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
