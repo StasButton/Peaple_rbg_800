@@ -76,10 +76,10 @@ def load_image():
             result = st.button('Заменить фон')
             if result:
                 im = loadresult(x,x_bg)
-                image_data_bg = im
+                #image_data_bg = im
                 #st.image(ls[1])
-                #st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
-                st.button('Заменить фон2')
+                st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
+                #st.button('Заменить фон2')
                 #st.image(ls[1])
         #return x,x_bg 
     else:
