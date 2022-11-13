@@ -40,7 +40,7 @@ def bgload():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-def loadresult(): 
+def loadresult(x,x_bg): 
     pred_ar = pedict2(x,x_bg) 
     im = utils.array_to_img(pred_ar)
     pred_ar_int = ar.astype(np.uint8)
@@ -74,7 +74,7 @@ def load_image():
             result = st.button('Заменить фон')
             #sig = False
             if result:
-                #data = loadresult()
+                data = loadresult(x,x_bg)
                 '''
                 pred_ar = pedict2(x,x_bg) 
                 im = utils.array_to_img(pred_ar)
