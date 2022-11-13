@@ -72,22 +72,22 @@ def load_image():
             x_bg = x_bg.reshape(-1, 3)
 
             result = st.button('Заменить фон')
-            #sig = False
             if result:
-                data = loadresult(x,x_bg)
-                '''
+                #data = loadresult(x,x_bg)
+                
                 pred_ar = pedict2(x,x_bg) 
                 im = utils.array_to_img(pred_ar)
+                st.image(im)
                 pred_ar_int = pred_ar.astype(np.uint8)
                 im = Image.fromarray(pred_ar_int)
-                st.image(im)
                 
                 
-                with io.BytesIO() as f:
-                    im.save(f, format='JPEG')
-                    data = f.getvalue()
+                
+               #with io.BytesIO() as f:
+                #    im.save(f, format='JPEG')
+                 #   data = f.getvalue()
                 #data = loadresult() 
-                '''
+                
              #if sig == True:
               #  st.image(im)
 
