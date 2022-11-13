@@ -53,7 +53,7 @@ def loadresult(x,x_bg):
         im.save(f, format='JPEG')
         data = f.getvalue()
         #ls = [data,im]
-    return im 
+    return data 
         
     
 def load_image():
@@ -75,10 +75,9 @@ def load_image():
 
             result = st.button('Заменить фон')
             if result:
-                im = loadresult(x,x_bg)
+                data = loadresult(x,x_bg)
                 #image_data_bg = im
-                #st.image(ls[1])
-                st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
+                st.download_button(label='Скачать',data = data],file_name='change_bg.jpg')
                 #st.button('Заменить фон2')
                 #st.image(ls[1])
         #return x,x_bg 
