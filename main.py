@@ -97,7 +97,7 @@ with col3:
             
             
             #data = loadresult(x,x_bg)
-            st.session_state.log.append(data)
+            #st.session_state.log.append(data)
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
   
 #---------------------------
