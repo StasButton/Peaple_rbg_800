@@ -86,11 +86,11 @@ with col3:
         result = st.button('Заменить фон')
         if result:
             c = a + b
-            st.text(c,a,b)
+            st.text(c+' '+a+' '+b)
             #data = loadresult(x,x_bg)
         result1 = st.button('Скачать')
         if result1:
-            st.text(c,a,b)
+            st.text(c+' '+a+' '+b)
             #st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
   
 #---------------------------
