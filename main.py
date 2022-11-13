@@ -48,7 +48,7 @@ def loadresult(x,x_bg):
     pred_ar_int = pred_ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
     
-    
+    st.image(im)
     with io.BytesIO() as f:
         im.save(f, format='JPEG')
         data = f.getvalue()
