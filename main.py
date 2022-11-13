@@ -85,14 +85,9 @@ with col3:
         if(len(st.session_state.log) > 0):
             b = False
             st.image(st.session_state.log[-1])
-        st.text(b)
         st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
 
-#---------------------------
-    
-#s = load_image()
-#if s is not None:
-    #st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
+
 
 
 
