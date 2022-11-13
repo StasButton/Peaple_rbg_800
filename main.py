@@ -76,15 +76,15 @@ def load_image():
                 data = loadresult(x,x_bg)
                 st.download_button(label='Скачать',data = data,file_name='change_bg.jpg',disabled = True)
             
-        return False
+        return True
     else:
         return None
     
 st.title('Замена фона на фотографиях людей')
 
-load_image()
-
-#st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
+s = load_image()
+if s is not None:
+    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
 
 
 
