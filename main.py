@@ -78,6 +78,7 @@ def load_image():
                 s = 1
                 ls = loadresult(x,x_bg)
                 st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
+                result = True
     else:
         return None
     
