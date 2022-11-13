@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras import utils
-#import u_net
+import u_net
 
 img_width = 192
 img_height = 256
