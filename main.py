@@ -74,14 +74,7 @@ def load_image():
             
             result = st.button('Заменить фон')
             if result:
-                pred_ar = pedict2(x,x_bg) 
-                im = utils.array_to_img(pred_ar)
-                pred_ar_int = pred_ar.astype(np.uint8)
-                im = Image.fromarray(pred_ar_int)
-
-                #st.image(im)
-                
-                #data = loadresult(x,x_bg)
+                data = loadresult(x,x_bg)
                 #image_data_bg = im
                 #st.download_button(label='Скачать',data = data,file_name='change_bg.jpg')
                 #st.button('Заменить фон2')
