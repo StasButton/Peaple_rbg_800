@@ -96,9 +96,10 @@ with col1:
     #st.image(image_data)
 #col2.write("This is column 2")
 with col2:
-    uploaded_file_bg = st.file_uploader(label='Выберите фон')
-    image_data_bg = uploaded_file_bg.getvalue()
-    st.image(image_data_bg)
+    #uploaded_file_bg = st.file_uploader(label='Выберите фон')
+    #image_data_bg = uploaded_file_bg.getvalue()
+    #st.image(image_data_bg)
+    st.title('Зам')
 #---------------------------
     
 #s = load_image()
