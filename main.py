@@ -48,12 +48,12 @@ def loadresult(x,x_bg):
     pred_ar_int = pred_ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
     
-    st.image(im)
+    #st.image(im)
     with io.BytesIO() as f:
         im.save(f, format='JPEG')
         data = f.getvalue()
         #ls = [data,im]
-    #return ls 
+    return im 
         
     
 def load_image():
@@ -72,11 +72,11 @@ def load_image():
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
-            
-            ls = ['','']
+
             result = st.button('Заменить фон')
             if result:
-                loadresult(x,x_bg)
+                im = loadresult(x,x_bg)
+                image_data_bg = im
                 #st.image(ls[1])
                 #st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
                 st.button('Заменить фон2')
