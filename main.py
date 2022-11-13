@@ -23,18 +23,7 @@ def preprocess_image(img):
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     return x
-    
-#def Prediction(i):
-    '''
-    pr = np.array(model.predict(i)) # Предиктим картинку
-    pr = pr.reshape(-1, 2) # Решейпим предикт
-    pr1 = [] # Пустой лист под сегментированную картинку из predicta
-    for q in pr: 
-       pr1.append(index2color(q)) # Переводим индекс в писксель
-    pr1 = np.array(pr1)
-    pr1 = pr1.reshape(img_height,img_width,1)
-    return pr1
-    '''
+
 #++++++++++++++++++++++++++++++++++++++++++++++
 def pedict2(fg,bg):
     pr = np.array(model.predict(fg)) # Предиктим картинку
@@ -70,23 +59,26 @@ def load_image():
 
             result = st.button('Заменить фон')
             if result:
-            #if (uploaded_file is not None) and (uploaded_file_bg is not None):
-                #
-                pred_ar = pedict2(x,x_bg)    #Prediction(x)
+                pred_ar = pedict2(x,x_bg) 
                 pred_im  = utils.array_to_img(pred_ar)
                 st.image(pred_im)
-                
-                #img_byte_arr = io.BytesIO(ar)
-                #img.save(img_byte_arr, format='PNG')
-                #image_data = pred_im.getvalue()
+                '''
+                pred_ar_int = pred_ar.astype(np.uint8)
+                im = Image.fromarray(pred_ar_int)
+                with io.BytesIO() as f:
+                    im.save(f, format='JPEG')
+                    data = f.getvalue()
+                st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
+                '''
+
             
-        return  image_data
+        #return  image_data
     else:
         return None
     
 st.title('Загрузка, скачивание изображений')
 
-s = load_image()
-if s is not None:
-    st.download_button(label = 'скачать',data= s,file_name='Q.png')
+load_image()
+#if s is not None:
+ #   st.download_button(label = 'скачать',data= s,file_name='Q.png')
 
