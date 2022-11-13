@@ -72,7 +72,7 @@ def load_image():
             x_bg = x_bg.reshape(-1, 3)
 
             result = st.button('Заменить фон')
-            sig = False
+            #sig = False
             if result:
                 data = loadresult()
                 '''
