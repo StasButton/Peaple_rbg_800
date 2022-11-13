@@ -43,7 +43,6 @@ def bgload():
         
 def load_result(ar):
     im  = utils.array_to_img(ar)
-    st.image(im)
     pred_ar_int = ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
     return im          
@@ -70,7 +69,7 @@ def load_image():
                 pred_ar = pedict2(x,x_bg) 
                 im = load_result(pred_ar)
                 
-            
+            st.image(im)
             with io.BytesIO() as f:
                      im.save(f, format='JPEG')
                      data = f.getvalue()
