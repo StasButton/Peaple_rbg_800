@@ -81,8 +81,9 @@ def load_image():
                 with io.BytesIO() as f:
                     im.save(f, format='JPEG')
                     data = f.getvalue()
-                #data = loadresult()               
-            #st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
+                #data = loadresult() 
+            if data is not None:
+                st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
                 
                 
             
