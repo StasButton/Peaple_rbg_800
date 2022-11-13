@@ -46,9 +46,7 @@ def load_result(ar):
     st.image(im)
     pred_ar_int = ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
-               
-
-    
+    return im          
     
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
@@ -70,7 +68,7 @@ def load_image():
             result = st.button('Заменить фон')
             if result:
                 pred_ar = pedict2(x,x_bg) 
-                load_result(pred_ar)
+                im = load_result(pred_ar)
                 
             #if result:
             with io.BytesIO() as f:
