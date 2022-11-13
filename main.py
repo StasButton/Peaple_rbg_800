@@ -72,21 +72,23 @@ def load_image():
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
-            ls = ['','']
-            result = st.button('Заменить фон')
-            if result:
-                #s = 1
-                ls = loadresult(x,x_bg)
-                st.image(ls[1])
-                #st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
-                st.button('Заменить фон2')
-            #st.image(ls[1])
+
     else:
         return None
+    
 
     
 st.title('Замена фона на фотографиях людей')
 
 s = load_image()
+
+ls = ['','']
+result = st.button('Заменить фон')
+if result:
+ls = loadresult(x,x_bg)
+st.image(ls[1])
+#st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
+st.button('Заменить фон2')
+#st.image(ls[1])
 
 
