@@ -80,10 +80,13 @@ with col2:
 
 with col3:
         #st.image(image_data_bg)
-        result = st.button('Заменить фон')
+        result = st.button('Заменить ')
         if result:
-            data = loadresult(x,x_bg)
-        st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
+            st.text('надо')
+            #data = loadresult(x,x_bg)
+        result1 = st.button('фон')
+            st.text('нахер')
+        #st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
   
 #---------------------------
     
