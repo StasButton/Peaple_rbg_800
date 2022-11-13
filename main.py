@@ -62,9 +62,10 @@ def load_image():
                 pred_ar = pedict2(x,x_bg) 
                 pred_im  = utils.array_to_img(pred_ar)
                 st.image(pred_im)
-                '''
+                
                 pred_ar_int = pred_ar.astype(np.uint8)
                 im = Image.fromarray(pred_ar_int)
+                '''
                 with io.BytesIO() as f:
                     im.save(f, format='JPEG')
                     data = f.getvalue()
