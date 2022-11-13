@@ -84,7 +84,7 @@ with col3:
         if result:
             #st.text('надо')
             data = loadresult(x,x_bg)
-        if result1:
+
             #st.text('нахер')
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
   
