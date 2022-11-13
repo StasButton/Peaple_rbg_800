@@ -51,7 +51,8 @@ def loadresult(x,x_bg):
     with io.BytesIO() as f:
         im.save(f, format='JPEG')
         data = f.getvalue()
-    return data, im
+        ls = [data,im]
+    return ls
         
     
 def load_image():
@@ -73,11 +74,12 @@ def load_image():
 
             result = st.button('Заменить фон')
             sig = False
+            ls = []
             if result:
+                ls = loadresult(x,x_bg)
                 sig = True
-            if sig:
-                d, im = loadresult(x,x_bg)
-                st.download_button(label='Скачать',data = d,file_name='change_bg.jpg')
+            if len(ls) != 0:
+                st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
 
              #if sig == True:
               #  st.image(im)
@@ -89,6 +91,5 @@ def load_image():
 st.title('Замена фона на фотографиях людей')
 
 s = load_image()
-#if s is not None:
-                #st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
+
 
