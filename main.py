@@ -90,6 +90,6 @@ def load_image():
 st.title('Замена фона на фотографиях людей')
 
 s = load_image()
-if s is not None:
-                st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
+#if s is not None:
+                #st.download_button(label='Скачать',data=data,file_name='change_bg.jpg')
 
