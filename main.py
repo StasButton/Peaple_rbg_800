@@ -67,8 +67,9 @@ def load_image():
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
-            st.image(image_data_bg)
+            
             img_bg = Image.open(io.BytesIO(image_data_bg))
+            st.image(image_data_bg)
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
             
