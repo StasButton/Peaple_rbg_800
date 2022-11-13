@@ -43,7 +43,7 @@ def bgload():
 def loadresult(x,x_bg): 
     pred_ar = pedict2(x,x_bg) 
     im = utils.array_to_img(pred_ar)
-    pred_ar_int = ar.astype(np.uint8)
+    pred_ar_int = pred_ar.astype(np.uint8)
     im = Image.fromarray(pred_ar_int)
     st.image(im)
     sig = True
