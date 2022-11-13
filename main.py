@@ -55,10 +55,7 @@ def loadresult(x,x_bg):
 
 #++++++++++++++++++++++++++++++++++++++++++++++    
 global data
-global image_fg
-global image_fbg
-#data = io.BytesIO()
-   
+data = io.BytesIO()
 st.title('Замена фона на фотографиях людей')
 #-----------------------------
 col1, col2, col3 = st.columns(3)
