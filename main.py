@@ -107,9 +107,7 @@ with col2:
         img_bg = Image.open(io.BytesIO(image_data_bg))
         x_bg = preprocess_image(img_bg)
         x_bg = x_bg.reshape(-1, 3)
-        result = st.button('Заменить фон')
-        if result:
-            data = loadresult(x,x_bg)
+
 with col3:
         #st.image(image_data_bg)
         result = st.button('Заменить фон')
