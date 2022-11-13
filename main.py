@@ -73,8 +73,7 @@ def load_image():
 
             result = st.button('Заменить фон')
             if result:
-                #data = loadresult(x,x_bg)
-                
+                '''
                 pred_ar = pedict2(x,x_bg) 
                 im = utils.array_to_img(pred_ar)
                 st.image(im)
@@ -84,7 +83,8 @@ def load_image():
                 with io.BytesIO() as f:
                     im.save(f, format='JPEG')
                     data = f.getvalue()
-                #data = loadresult() 
+                '''
+                data = loadresult(x,x_bg) 
                 
              #if sig == True:
               #  st.image(im)
