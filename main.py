@@ -77,11 +77,7 @@ def load_image():
                 #sig = True
                 d,image_data_bg = loadresult(x,x_bg)
                 st.download_button(label='Скачать',data = d,file_name='change_bg.jpg')
-            if sig:
-                 st.image(image_data_bg)
-                
-                 
-                
+
              #if sig == True:
               #  st.image(im)
 
