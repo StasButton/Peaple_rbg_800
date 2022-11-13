@@ -24,8 +24,6 @@ def preprocess_image(img):
     x = np.expand_dims(x, axis=0)
     return x
 
-#++++++++++++++++++++++++++++++++++++++++++++++
-
 def pedict2(fg,bg):
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
@@ -36,12 +34,12 @@ def pedict2(fg,bg):
     bg = bg.reshape(img_height,img_width,3)
     return bg
 
-#++++++++++++++++++++++++++++++++++++++++++++++++ 
 def bgload():
     uploaded_file = st.file_uploader(label='Выберите фон')
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
+#++++++++++++++++++++++++++++++++++++++++++++++
 def loadresult(x,x_bg): 
     pred_ar = pedict2(x,x_bg) 
     im = utils.array_to_img(pred_ar)
@@ -54,7 +52,7 @@ def loadresult(x,x_bg):
         data = f.getvalue()
     return data 
         
-    
+global data = io.BytesIO()
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
     
