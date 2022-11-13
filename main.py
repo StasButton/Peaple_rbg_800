@@ -73,8 +73,8 @@ def load_image():
                 pred_im  = utils.array_to_img(pred_ar)
                 
                 res = load_result(pred_im,pred_ar)
-                if res:
-                    load_result(pred_im,pred_ar)
+                st.text('res')
+
                 
 
             
