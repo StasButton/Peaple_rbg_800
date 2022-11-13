@@ -94,11 +94,12 @@ with col3:
             with io.BytesIO() as f:
                 im.save(f, format='JPEG')
                 data = f.getvalue()
-            
-            
-            #data = loadresult(x,x_bg)
-            #st.session_state.log.append(data)
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
+            
+            if(len(st.session_state.log) != 0):
+                st.image(st.session_state.log[-1])
+
+            
   
 #---------------------------
     
