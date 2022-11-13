@@ -78,7 +78,7 @@ def load_image():
                 #st.download_button(label='Скачать',data = data,file_name='change_bg.jpg',disabled = True)
                 #st.button('Заменить фон2')
                 #st.image(ls[1])
-            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = True)
+            
             st.text(result) 
        #return im
     else:
@@ -88,6 +88,7 @@ def load_image():
     
 st.title('Замена фона на фотографиях людей')
 load_image()
+st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = True)
 
 
 
