@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras import utils
-import u_net
+#import u_net
 
 img_width = 192
 img_height = 256
@@ -73,7 +73,7 @@ def load_image():
 
             result = st.button('Заменить фон')
             if result:
-                ls = loadresult(x,x_bg)
+                #ls = loadresult(x,x_bg)
                 #st.download_button(label='Скачать',data = ls[0],file_name='change_bg.jpg')
     else:
         return None
