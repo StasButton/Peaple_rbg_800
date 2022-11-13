@@ -92,7 +92,7 @@ col1, col2= st.columns(2)
 with col1:
     uploaded_file = st.file_uploader(label='Выберите изображение')
     image_data = uploaded_file.getvalue()
-col2.write("This is column 2")
+#col2.write("This is column 2")
 with col2:
     uploaded_file_bg = st.file_uploader(label='Выберите фон')
     image_data_bg = uploaded_file_bg.getvalue()
