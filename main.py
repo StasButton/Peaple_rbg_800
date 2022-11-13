@@ -51,15 +51,21 @@ def loadresult(x,x_bg):
         im.save(f, format='JPEG')
         data = f.getvalue()
     return data 
+#++++++++++++++++++++++++++++++++++++++++++++++  
+
 #++++++++++++++++++++++++++++++++++++++++++++++    
 global data
-data = io.BytesIO()
+global image_fg
+global image_fbg
+#data = io.BytesIO()
+'''
 def load_image():
     uploaded_file = st.file_uploader(label='Выберите изображение')
     
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
+        
         img = Image.open(io.BytesIO(image_data))
         x = preprocess_image(img)
         
@@ -67,6 +73,7 @@ def load_image():
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
             st.image(image_data_bg)
+            
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
@@ -78,12 +85,23 @@ def load_image():
         return True
     else:
         return None
-    
+'''    
 st.title('Замена фона на фотографиях людей')
-
-s = load_image()
-if s is not None:
-    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
+#-----------------------------
+col1, col2= st.columns(2)
+with col1:
+    uploaded_file = st.file_uploader(label='Выберите изображение')
+    image_data = uploaded_file.getvalue()
+col2.write("This is column 2")
+with col2:
+    uploaded_file_bg = st.file_uploader(label='Выберите фон')
+    image_data_bg = uploaded_file_bg.getvalue()
+    st.image(image_data_bg)
+#---------------------------
+    
+#s = load_image()
+#if s is not None:
+    #st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg')
 
 
 
