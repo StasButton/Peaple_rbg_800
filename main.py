@@ -80,7 +80,7 @@ def load_image():
                 #st.button('Заменить фон2')
                 #st.image(ls[1])
             
-            #st.image(im) 
+            st.text(result) 
        #return im
     else:
         return None
