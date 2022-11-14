@@ -1,21 +1,13 @@
-import io
-import streamlit as st
-from PIL import Image
-import numpy as np
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras import utils
-import u_net
+import io;import streamlit as s;from PIL import Image;import numpy as np
+from tensorflow.keras.preprocessing import image;from tensorflow.keras import utils;import u_net
 
 if 'log' not in st.session_state:
     st.session_state.log = []
-
-img_width = 192
-img_height = 256
-num_classes = 2
-
+img_width = 192;img_height = 256;num_classes = 2
+#--------------------------------------------------
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
-#--------------------------------------------------
+
 def preprocess_image(img):
     img = img.resize((192, 256))
     x = image.img_to_array(img)
@@ -32,24 +24,6 @@ def pedict2(fg,bg):
     bg = bg.reshape(img_height,img_width,3)
     return bg
 #--------------------------------------------------
-'''
-def index2color(ind):
-    index = np.argmax(ind) # Получаем индекс максимального элемента
-    color = index*255
-    return color # Возвращаем цвет пикслея
-
-
-
-
-
-def bgload():
-    uploaded_file = st.file_uploader(label='Выберите фон')
-    if uploaded_file is not None:
-        image_data = uploaded_file.getvalue()
-        st.image(image_data)
-'''        
-#++++++++++++++++++++++++++++++++++++++++++++++ 
-
 
 global data
 data = io.BytesIO()
@@ -62,16 +36,12 @@ st.title('Замена фона на фотографиях людей')
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    
     uploaded_file = st.file_uploader(label='фото человека')
     if uploaded_file is not None:
-        
         image_data = uploaded_file.getvalue()
-
         #st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
-        x = preprocess_image(img)
-    
+        x = preprocess_image(img) 
 with col2:
     uploaded_file_bg = st.file_uploader(label='Выберите фон')
     if uploaded_file_bg is not None:
@@ -80,8 +50,6 @@ with col2:
         img_bg = Image.open(io.BytesIO(image_data_bg))
         x_bg = preprocess_image(img_bg)
         x_bg = x_bg.reshape(-1, 3)
- 
-
 with col3:
         result = st.button('Заменить фон',key=1)
         if result:
@@ -89,15 +57,12 @@ with col3:
              im = utils.array_to_img(pred_ar)
              pred_ar_int = pred_ar.astype(np.uint8)
              im = Image.fromarray(pred_ar_int)
-            
              #st.image(im)
              st.session_state.log.append(im)
-            
              with io.BytesIO() as f:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
-
         if len(st.session_state.log) > 0:
             #st.image(st.session_state.log[-1])
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2) # disabled = b
