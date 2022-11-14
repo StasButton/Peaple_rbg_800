@@ -82,15 +82,14 @@ with col3:
              pred_ar_int = pred_ar.astype(np.uint8)
              im = Image.fromarray(pred_ar_int)
             
-             #st.image(im)
+             st.image(im)
              st.session_state.log.append(im)
             
              with io.BytesIO() as f:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
-                 
-            
+                
         b = True   
         if(len(st.session_state.log) > 0):
            b = False
