@@ -129,6 +129,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
                   metrics=[dice_coef])
     
     return model
+'''
 #++++++++++++++++++++++++++++++++++++++++++++++ 
 def index2color(ind):
     index = np.argmax(ind) # Получаем индекс максимального элемента
@@ -159,4 +160,4 @@ def bgload():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
 #++++++++++++++++++++++++++++++++++++++++++++++ 
-
+'''
