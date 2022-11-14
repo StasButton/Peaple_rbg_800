@@ -31,6 +31,7 @@ data = io.BytesIO()
 global im
 global image_data_bg
 global image_data
+global x
 
 st.title('Замена фона на фотографиях людей')
 
