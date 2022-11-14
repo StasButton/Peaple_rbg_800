@@ -1,5 +1,6 @@
-import io;import streamlit as s;from PIL import Image;import numpy as np
-from tensorflow.keras.preprocessing import image;from tensorflow.keras import utils;import u_net
+import io;import streamlit as st
+from PIL import Image;import numpy as np;from tensorflow.keras.preprocessing import image;
+from tensorflow.keras import utils;import u_net
 
 if 'log' not in st.session_state:
     st.session_state.log = []
