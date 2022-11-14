@@ -51,7 +51,7 @@ data = io.BytesIO()
 global im
 
 global image_data_bg
-image_data_bg = 
+
 st.title('Замена фона на фотографиях людей')
 
 col1, col2, col3 = st.columns(3)
