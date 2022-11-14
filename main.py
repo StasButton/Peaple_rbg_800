@@ -12,14 +12,17 @@ if 'log' not in st.session_state:
 img_width = 192
 img_height = 256
 num_classes = 2
+
+model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
+model.load_weights('model_weights_P.h5')
+'''
 #--------------------------------------------------
 def index2color(ind):
     index = np.argmax(ind) # Получаем индекс максимального элемента
     color = index*255
     return color # Возвращаем цвет пикслея
 
-model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
-model.load_weights('model_weights_P.h5')
+
 
 def preprocess_image(img):
     img = img.resize((192, 256))
@@ -43,6 +46,7 @@ def bgload():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
 #++++++++++++++++++++++++++++++++++++++++++++++ 
+'''
 
 global data
 data = io.BytesIO()
