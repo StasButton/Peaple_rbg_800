@@ -119,10 +119,10 @@ if uploaded_file is not None:
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
-with tab3:
-    b =  True    
-    #st.image(im)
-    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2)
+if result:        
+    with tab3:  
+        st.image(im)
+        st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
 
 
 
