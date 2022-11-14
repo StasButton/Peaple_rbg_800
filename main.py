@@ -72,7 +72,7 @@ with col2:
 
 with col3:
     
-        result = st.button('Заменить фон')
+        result = st.button(key=1,'Заменить фон')
         if result:
             pred_ar = pedict2(x,x_bg) 
             im = utils.array_to_img(pred_ar)
@@ -113,7 +113,7 @@ with tab3:
     if(len(st.session_state.log) > 0):
         b = False
         st.image(st.session_state.log[-1])
-    #st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
+    st.download_button(key=2,label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
 
 
 
