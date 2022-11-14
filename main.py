@@ -8,6 +8,14 @@ img_width = 192;img_height = 256;num_classes = 2
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
 
+def myresize_w256(img):
+  d = img.size
+  h = int(d[1]/(d[1]/256))
+  w = int(d[0]/(d[1]/256))
+  im = img.resize((w,h))
+  l = im.size[0]/2 - 192/2
+  im_cr = im.crop((0+l,0,192+l,256))
+  return im_cr
 
 def preprocess_image(img):
     img = img.resize((192, 256))
@@ -77,9 +85,8 @@ tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Резул�
 if uploaded_file is not None:
     with tab1:
         #st.image(image_data)
-        img = img.resize((192, 256))
-        #img = np.array(img)
-        #st.text(img.shape)
+        #img = img.resize((192, 256))
+        img = myresize_w256
         st.image(img)
 if uploaded_file_bg is not None:            
     with tab2:
