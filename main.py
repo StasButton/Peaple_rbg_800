@@ -31,7 +31,7 @@ data = io.BytesIO()
 global im
 global image_data_bg
 global image_data
-global x
+global img
 
 st.title('Замена фона на фотографиях людей')
 
@@ -77,9 +77,9 @@ tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Резул�
 if uploaded_file is not None:
     with tab1:
         #st.image(image_data)
-        x = np.array(x)
+        x = np.array(img)
         st.text(x.shape)
-        #st.image(x)
+        st.image(img)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
