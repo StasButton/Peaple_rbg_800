@@ -63,21 +63,12 @@ with col3:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
+             st.balloons()
 #-----------------------------------------------------------------------
 st.sidebar.radio(
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)","Express (2-5 days)w")
 )
-
-'''
-
-
-with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    )
-'''
 #-----------------------------------------------------------------------  
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
