@@ -7,7 +7,9 @@ from tensorflow.keras import utils
 import u_net
 
 #if 'log' not in st.session_state:
- #   st.session_state.log = []
+    #st.session_state.log = []
+ 
+st.session_state.log = []
 
 img_width = 192
 img_height = 256
@@ -49,7 +51,6 @@ data = io.BytesIO()
 global im
 global image_data
 global image_data_bg
-#im = Image.open(io.BytesIO())
 
 st.title('Замена фона на фотографиях людей')
 
@@ -86,12 +87,13 @@ with col3:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
-                 st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
+                 
             
             
-        #if(len(st.session_state.log) > 0):
+        if(len(st.session_state.log) > 0):
            #b = False
-            #st.image(st.session_state.log[-1])
+           st.image(st.session_state.log[-1])
+           st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
         
 #--------------------------------------------------------------------------------------
 
@@ -105,7 +107,7 @@ with st.sidebar:
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
-    
+''' 
 tab1, tab2, tab3  = st.tabs(["Tab 1", "Tab2", "Tab3"])
 
 with tab1:
@@ -116,6 +118,7 @@ with tab3:
     b =  True    
     #st.image(im)
     st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3,disabled = b)
+'''
 
 
 
