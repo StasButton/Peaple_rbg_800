@@ -129,3 +129,34 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
                   metrics=[dice_coef])
     
     return model
+#++++++++++++++++++++++++++++++++++++++++++++++ 
+def index2color(ind):
+    index = np.argmax(ind) # Получаем индекс максимального элемента
+    color = index*255
+    return color # Возвращаем цвет пикслея
+
+
+
+def preprocess_image(img):
+    img = img.resize((192, 256))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    return x
+
+def pedict2(fg,bg):
+    pr = np.array(model.predict(fg)) # Предиктим картинку
+    pr = pr.reshape(-1, 2) # Решейпим предикт
+    fg = fg.reshape(-1, 3)
+    for i , q in enumerate(pr): #start =1
+        if np.argmax(q) > 0.5:
+            bg[i] = fg[i]
+    bg = bg.reshape(img_height,img_width,3)
+    return bg
+
+def bgload():
+    uploaded_file = st.file_uploader(label='Выберите фон')
+    if uploaded_file is not None:
+        image_data = uploaded_file.getvalue()
+        st.image(image_data)
+#++++++++++++++++++++++++++++++++++++++++++++++ 
+
