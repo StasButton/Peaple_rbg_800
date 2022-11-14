@@ -46,7 +46,9 @@ def bgload():
 
 global data
 data = io.BytesIO()
-global im 
+global im
+global image_data
+global image_data_bg
 #im = Image.open(io.BytesIO())
 
 st.title('Замена фона на фотографиях людей')
