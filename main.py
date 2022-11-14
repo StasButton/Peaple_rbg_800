@@ -6,8 +6,8 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras import utils
 import u_net
 
-if 'log' not in st.session_state:
-    st.session_state.log = []
+#if 'log' not in st.session_state:
+ #   st.session_state.log = []
 
 img_width = 192
 img_height = 256
@@ -42,14 +42,15 @@ def bgload():
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-#++++++++++++++++++++++++++++++++++++++++++++++    
+#++++++++++++++++++++++++++++++++++++++++++++++ 
+
 global data
 data = io.BytesIO()
-st.title('Замена фона на фотографиях людей')
-#----------------------------
-#st.sidebar.selectbox()
+global im 
+im = Image.open(io.BytesIO())
 
-#-----------------------------
+st.title('Замена фона на фотографиях людей')
+
 col1, col2, col3 = st.columns(3)
 with col1:
     #col1.write("фото человека")
@@ -77,17 +78,17 @@ with col3:
             im = utils.array_to_img(pred_ar)
             pred_ar_int = pred_ar.astype(np.uint8)
             im = Image.fromarray(pred_ar_int)
-            #st.image(im)
-            st.session_state.log.append(im)
+            st.image(im)
+            #st.session_state.log.append(im)
             with io.BytesIO() as f:
                 im.save(f, format='JPEG')
                 data = f.getvalue()
             
         b =  True    
-        if(len(st.session_state.log) > 0):
-            b = False
-            st.image(st.session_state.log[-1])
-        #st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
+        #if(len(st.session_state.log) > 0):
+           #b = False
+            #st.image(st.session_state.log[-1])
+        st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
 #--------------------------------------------------------------------------------------
 
 st.sidebar.selectbox(
@@ -109,10 +110,10 @@ with tab2:
     st.image(image_data_bg)
 with tab3:
     b =  True    
-    if(len(st.session_state.log) > 0):
-        b = False
-        st.image(st.session_state.log[-1])
-    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
+    #if(len(st.session_state.log) > 0):
+      #  b = False
+     #   st.image(st.session_state.log[-1])
+    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3,disabled = b)
 
 
 
