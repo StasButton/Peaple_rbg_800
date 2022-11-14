@@ -82,7 +82,7 @@ with col3:
              pred_ar_int = pred_ar.astype(np.uint8)
              im = Image.fromarray(pred_ar_int)
             
-             st.image(im)
+             #st.image(im)
              st.session_state.log.append(im)
             
              with io.BytesIO() as f:
@@ -92,9 +92,10 @@ with col3:
                 
         b = True   
         if(len(st.session_state.log) > 0):
-           b = False
-        st.image(st.session_state.log[-1])
-        st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
+            b = False
+            st.text(len(st.session_state.log))
+            st.image(st.session_state.log[-1])
+            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
         
 #--------------------------------------------------------------------------------------
 
