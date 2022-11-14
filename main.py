@@ -15,7 +15,7 @@ num_classes = 2
 
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
-'''
+
 #--------------------------------------------------
 def index2color(ind):
     index = np.argmax(ind) # Получаем индекс максимального элемента
@@ -46,7 +46,7 @@ def bgload():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
 #++++++++++++++++++++++++++++++++++++++++++++++ 
-'''
+
 
 global data
 data = io.BytesIO()
@@ -67,7 +67,7 @@ with col1:
 
         #st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
-        x = u_net.preprocess_image(img)
+        x = preprocess_image(img)
     
 with col2:
 
@@ -76,7 +76,7 @@ with col2:
         image_data_bg = uploaded_file_bg.getvalue()
         #st.image(image_data_bg)
         img_bg = Image.open(io.BytesIO(image_data_bg))
-        x_bg = u_net.preprocess_image(img_bg)
+        x_bg = preprocess_image(img_bg)
         x_bg = x_bg.reshape(-1, 3)
  
 
@@ -124,11 +124,5 @@ if len(st.session_state.log) > 0:
     with tab3:  
         st.image(st.session_state.log[-1])
         st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
-
-
-
-
-
-
 
 
