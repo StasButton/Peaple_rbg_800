@@ -106,7 +106,7 @@ with st.sidebar:
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
 #-----------------------------------------------------------------------  
-tab1, tab2, tab3  = st.tabs(["Tab 1", "Tab2", "Tab3"])
+tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
 if uploaded_file is not None:
     with tab1:
