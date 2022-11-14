@@ -61,7 +61,6 @@ with col1:
         x = preprocess_image(img)
     
 with col2:
-    #col2.write("фон")
     uploaded_file_bg = st.file_uploader(label='Выберите фон')
     if uploaded_file_bg is not None:
         image_data_bg = uploaded_file_bg.getvalue()
