@@ -8,13 +8,11 @@ import u_net
 
 if 'log' not in st.session_state:
     st.session_state.log = []
- 
-#st.session_state.log = []
 
 img_width = 192
 img_height = 256
 num_classes = 2
-
+#--------------------------------------------------
 def index2color(ind):
     index = np.argmax(ind) # Получаем индекс максимального элемента
     color = index*255
@@ -22,7 +20,7 @@ def index2color(ind):
 
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
-#--------------------------------------------------
+
 def preprocess_image(img):
     img = img.resize((192, 256))
     x = image.img_to_array(img)
@@ -49,14 +47,14 @@ def bgload():
 global data
 data = io.BytesIO()
 global im
-
 global image_data_bg
+global image_data
+#image_data = None
 
 st.title('Замена фона на фотографиях людей')
 
 col1, col2, col3 = st.columns(3)
-global image_data
-image_data = None
+
 with col1:
     #col1.write("фото человека")
     uploaded_file = st.file_uploader(label='фото человека')
@@ -120,7 +118,6 @@ if uploaded_file_bg is not None:
     with tab2:
         st.image(image_data_bg)
 if len(st.session_state.log) > 0:
-#if result:
     with tab3:  
         st.image(st.session_state.log[-1])
         st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
