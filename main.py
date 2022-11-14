@@ -95,7 +95,7 @@ with col3:
                  b =  False
                 
         #b = True   
-        if(len(st.session_state.log) > 0):
+        if len(st.session_state.log) > 0:
             #b = False
             st.image(st.session_state.log[-1])
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2) # disabled = b
@@ -119,8 +119,7 @@ if uploaded_file is not None:
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
- if(len(st.session_state.log) > 0):
-    s = 1
+ if result:
     with tab3:  
         st.image(st.session_state.log[-1])
         st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
