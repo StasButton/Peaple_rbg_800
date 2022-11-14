@@ -63,7 +63,8 @@ with col3:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
-             st.balloons()
+             #st.balloons()
+             st.snow()
 #-----------------------------------------------------------------------
 st.sidebar.radio(
         "Choose a shipping method",
