@@ -89,38 +89,7 @@ with col3:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
- '''               
-        b = True   
-        if(len(st.session_state.log) > 0):
-            b = False
-            st.text(len(st.session_state.log))
-            st.image(st.session_state.log[-1])
-            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
-        
-#--------------------------------------------------------------------------------------
 
-st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
-
-with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    )
- 
-tab1, tab2, tab3  = st.tabs(["Tab 1", "Tab2", "Tab3"])
-
-with tab1:
-    st.image(image_data) 
-with tab2:
-    st.image(image_data_bg)
-with tab3:
-    b =  True    
-    #st.image(im)
-    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3,disabled = b)
-'''
 
 
 
