@@ -66,7 +66,7 @@ with col3:
 #-----------------------------------------------------------------------
 st.sidebar.radio(
         "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)","Express (2-5 days)")
+        ("Standard (5-15 days)", "Express (2-5 days)","Express (2-5 days)w")
 )
 
 '''
