@@ -101,6 +101,13 @@ with st.sidebar:
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
+    
+tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
+
+with tab1:
+    st.image(image_data) 
+with tab2:
+    st.image(image_data_bg)
 
 
 
