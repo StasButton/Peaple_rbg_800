@@ -93,8 +93,8 @@ with col3:
         b = True   
         if(len(st.session_state.log) > 0):
            b = False
-           st.image(st.session_state.log[-1])
-           st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
+        st.image(st.session_state.log[-1])
+        st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
         
 #--------------------------------------------------------------------------------------
 
