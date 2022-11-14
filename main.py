@@ -45,7 +45,7 @@ def bgload():
 #++++++++++++++++++++++++++++++++++++++++++++++ 
 
 global data
-#data = io.BytesIO()
+data = io.BytesIO()
 global im
 global image_data_bg
 global image_data
