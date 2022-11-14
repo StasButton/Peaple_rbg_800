@@ -67,7 +67,7 @@ with col1:
 
         #st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
-        x = preprocess_image(img)
+        x = u_net.preprocess_image(img)
     
 with col2:
 
@@ -76,7 +76,7 @@ with col2:
         image_data_bg = uploaded_file_bg.getvalue()
         #st.image(image_data_bg)
         img_bg = Image.open(io.BytesIO(image_data_bg))
-        x_bg = preprocess_image(img_bg)
+        x_bg = u_net.preprocess_image(img_bg)
         x_bg = x_bg.reshape(-1, 3)
  
 
