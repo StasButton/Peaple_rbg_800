@@ -116,7 +116,7 @@ with tab2:
 with tab3:
     b =  True    
     #st.image(im)
-    st.download_button(label='Скачать готовое изображение',d
+    st.download_button(label='Скачать готовое изображение')
 
 
 
