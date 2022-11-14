@@ -15,7 +15,7 @@ num_classes = 2
 
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
-
+'''
 #--------------------------------------------------
 def index2color(ind):
     index = np.argmax(ind) # Получаем индекс максимального элемента
@@ -46,7 +46,7 @@ def bgload():
         image_data = uploaded_file.getvalue()
         st.image(image_data)
 #++++++++++++++++++++++++++++++++++++++++++++++ 
-
+'''
 
 global data
 data = io.BytesIO()
