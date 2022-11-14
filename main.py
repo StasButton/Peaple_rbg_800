@@ -6,10 +6,10 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras import utils
 import u_net
 
-#if 'log' not in st.session_state:
-    #st.session_state.log = []
+if 'log' not in st.session_state:
+    st.session_state.log = []
  
-st.session_state.log = []
+#st.session_state.log = []
 
 img_width = 192
 img_height = 256
@@ -96,7 +96,7 @@ with col3:
             st.text('sssssssssssss')
             
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
-        if(len(st.session_state.log) > 0):
+if(len(st.session_state.log) > 0):
             st.text(len(st.session_state.log))
             st.image(st.session_state.log[0])
         
