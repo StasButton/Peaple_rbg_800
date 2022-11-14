@@ -49,7 +49,7 @@ def bgload():
 global data
 data = io.BytesIO()
 global im
-global image_data
+
 global image_data_bg
 
 st.title('Замена фона на фотографиях людей')
@@ -60,6 +60,7 @@ with col1:
     uploaded_file = st.file_uploader(label='фото человека')
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
+        global image_data
         st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
         x = preprocess_image(img)
