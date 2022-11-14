@@ -15,15 +15,7 @@ num_classes = 2
 
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
-
 #--------------------------------------------------
-def index2color(ind):
-    index = np.argmax(ind) # Получаем индекс максимального элемента
-    color = index*255
-    return color # Возвращаем цвет пикслея
-
-
-
 def preprocess_image(img):
     img = img.resize((192, 256))
     x = image.img_to_array(img)
@@ -39,12 +31,23 @@ def pedict2(fg,bg):
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
+#--------------------------------------------------
+'''
+def index2color(ind):
+    index = np.argmax(ind) # Получаем индекс максимального элемента
+    color = index*255
+    return color # Возвращаем цвет пикслея
+
+
+
+
 
 def bgload():
     uploaded_file = st.file_uploader(label='Выберите фон')
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         st.image(image_data)
+'''        
 #++++++++++++++++++++++++++++++++++++++++++++++ 
 
 
