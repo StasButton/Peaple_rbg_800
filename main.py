@@ -8,6 +8,7 @@ img_width = 192;img_height = 256;num_classes = 2
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
 
+
 def preprocess_image(img):
     img = img.resize((192, 256))
     x = image.img_to_array(img)
@@ -39,14 +40,13 @@ with col1:
     uploaded_file = st.file_uploader(label='фото человека')
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
-        #st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
-        x = preprocess_image(img) 
+        x = preprocess_image(img)
+        
 with col2:
     uploaded_file_bg = st.file_uploader(label='Выберите фон')
     if uploaded_file_bg is not None:
         image_data_bg = uploaded_file_bg.getvalue()
-        #st.image(image_data_bg)
         img_bg = Image.open(io.BytesIO(image_data_bg))
         x_bg = preprocess_image(img_bg)
         x_bg = x_bg.reshape(-1, 3)
@@ -75,7 +75,8 @@ tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Резул�
 
 if uploaded_file is not None:
     with tab1:
-        st.image(image_data)
+        #st.image(image_data)
+        st.image(x)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
