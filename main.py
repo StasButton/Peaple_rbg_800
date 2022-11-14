@@ -61,7 +61,7 @@ with col1:
         
         image_data = uploaded_file.getvalue()
 
-        st.image(image_data)
+        #st.image(image_data)
         img = Image.open(io.BytesIO(image_data))
         x = preprocess_image(img)
     
@@ -69,7 +69,7 @@ with col2:
     uploaded_file_bg = st.file_uploader(label='Выберите фон')
     if uploaded_file_bg is not None:
         image_data_bg = uploaded_file_bg.getvalue()
-        st.image(image_data_bg)
+        #st.image(image_data_bg)
         img_bg = Image.open(io.BytesIO(image_data_bg))
         x_bg = preprocess_image(img_bg)
         x_bg = x_bg.reshape(-1, 3)
@@ -90,11 +90,9 @@ with col3:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
-                
-        #b = True   
+
         if len(st.session_state.log) > 0:
-            #b = False
-            st.image(st.session_state.log[-1])
+            #st.image(st.session_state.log[-1])
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2) # disabled = b
 #-----------------------------------------------------------------------            
 st.sidebar.selectbox(
