@@ -1,6 +1,5 @@
-import io;import streamlit as st
-from PIL import Image;import numpy as np;from tensorflow.keras.preprocessing import image;
-from tensorflow.keras import utils;import u_net
+import io;import streamlit as st;from PIL import Image;import numpy as np
+from tensorflow.keras.preprocessing import image;from tensorflow.keras import utils;import u_net
 
 if 'log' not in st.session_state:
     st.session_state.log = []
@@ -64,9 +63,11 @@ with col3:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
+        '''
         if len(st.session_state.log) > 0:
             #st.image(st.session_state.log[-1])
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2) # disabled = b
+        '''
 #-----------------------------------------------------------------------            
 st.sidebar.selectbox(
     "How would you like to be contacted?",
