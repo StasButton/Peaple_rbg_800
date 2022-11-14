@@ -78,7 +78,8 @@ if uploaded_file is not None:
     with tab1:
         #st.image(image_data)
         x = np.array(x)
-        st.image(x)
+        st.text(x.shape)
+        #st.image(x)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
