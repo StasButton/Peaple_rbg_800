@@ -94,11 +94,11 @@ with col3:
         if(len(st.session_state.log) > 0):
             b = False
             st.text('sssssssssssss')
-            
+            st.image(st.session_state.log[-1])
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
 if(len(st.session_state.log) > 0):
             st.text(len(st.session_state.log))
-            st.image(st.session_state.log[0])
+            st.image(st.session_state.log[-1])
         
 
 
