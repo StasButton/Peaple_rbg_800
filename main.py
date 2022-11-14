@@ -77,7 +77,7 @@ tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Резул�
 if uploaded_file is not None:
     with tab1:
         #st.image(image_data)
-        x = np.array(img)
+        img = np.array(img)
         st.text(x.shape)
         st.image(img)
 if uploaded_file_bg is not None:            
