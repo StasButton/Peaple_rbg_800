@@ -89,7 +89,7 @@ with col3:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
                  b =  False
-                
+ '''               
         b = True   
         if(len(st.session_state.log) > 0):
             b = False
@@ -109,7 +109,7 @@ with st.sidebar:
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
-''' 
+ 
 tab1, tab2, tab3  = st.tabs(["Tab 1", "Tab2", "Tab3"])
 
 with tab1:
