@@ -121,7 +121,7 @@ if uploaded_file_bg is not None:
         st.image(image_data_bg)
 if result:        
     with tab3:  
-        st.image(im)
+        st.image(st.session_state.log[-1])
         st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
 
 
