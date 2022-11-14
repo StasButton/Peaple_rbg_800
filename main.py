@@ -55,11 +55,13 @@ global image_data_bg
 st.title('Замена фона на фотографиях людей')
 
 col1, col2, col3 = st.columns(3)
+global image_data
+image_data = None
 with col1:
     #col1.write("фото человека")
     uploaded_file = st.file_uploader(label='фото человека')
     if uploaded_file is not None:
-        global image_data
+        
         image_data = uploaded_file.getvalue()
 
         st.image(image_data)
