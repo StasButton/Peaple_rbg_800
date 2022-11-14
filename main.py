@@ -64,8 +64,10 @@ with col3:
                  data = f.getvalue()
                  b =  False
 #-----------------------------------------------------------------------
+
+st.sidebar
 '''
-st.sidebar.selectbox(
+.selectbox(
     "How would you like to be contacted?",
     ("Email", "Home phone", "Mobile phone")
 )
