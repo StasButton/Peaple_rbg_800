@@ -70,7 +70,7 @@ with col1:
         x = preprocess_image(img)
     
 with col2:
-    fubg = True
+    fubg = False
     if fubg:
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         
