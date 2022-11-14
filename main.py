@@ -114,11 +114,11 @@ with st.sidebar:
 tab1, tab2, tab3  = st.tabs(["Tab 1", "Tab2", "Tab3"])
 
 with tab1:
-if uploaded_file is not None:
-    st.image(image_data) 
+    if uploaded_file is not None:
+        st.image(image_data) 
 with tab2:
-if uploaded_file_bg is not None:
-    st.image(image_data_bg)
+    if uploaded_file_bg is not None:
+        st.image(image_data_bg)
 with tab3:
     b =  True    
     #st.image(im)
