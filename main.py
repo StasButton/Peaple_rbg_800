@@ -97,6 +97,7 @@ with col3:
             
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
         if(len(st.session_state.log) > 0):
+            st.text(len(st.session_state.log))
             st.image(st.session_state.log[-1])
         
 
