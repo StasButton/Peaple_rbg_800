@@ -76,21 +76,23 @@ with col3:
     
         result = st.button('Заменить фон',key=1)
         if result:
-            pred_ar = pedict2(x,x_bg) 
-            im = utils.array_to_img(pred_ar)
-            pred_ar_int = pred_ar.astype(np.uint8)
-            im = Image.fromarray(pred_ar_int)
-            st.image(im)
-            #st.session_state.log.append(im)
-            with io.BytesIO() as f:
-                im.save(f, format='JPEG')
-                data = f.getvalue()
+             pred_ar = pedict2(x,x_bg) 
+             im = utils.array_to_img(pred_ar)
+             pred_ar_int = pred_ar.astype(np.uint8)
+             im = Image.fromarray(pred_ar_int)
+             st.image(im)
+             #st.session_state.log.append(im)
+             with io.BytesIO() as f:
+                 im.save(f, format='JPEG')
+                 data = f.getvalue()
+                 b =  False
+                 st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
             
-        b =  True    
+            
         #if(len(st.session_state.log) > 0):
            #b = False
             #st.image(st.session_state.log[-1])
-        st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,disabled = b)
+        
 #--------------------------------------------------------------------------------------
 
 st.sidebar.selectbox(
@@ -112,8 +114,6 @@ with tab2:
     st.image(image_data_bg)
 with tab3:
     b =  True    
-    #if(len(st.session_state.log) > 0):
-      #  b = False
     #st.image(im)
     st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3,disabled = b)
 
