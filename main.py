@@ -102,12 +102,18 @@ with st.sidebar:
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
     
-tab1, tab2 = st.tabs(["Tab 1", "Tab2"])
+tab1, tab2, tab3  = st.tabs(["Tab 1", "Tab2", "Tab3"])
 
 with tab1:
     st.image(image_data) 
 with tab2:
     st.image(image_data_bg)
+with tab3:
+    b =  True    
+    if(len(st.session_state.log) > 0):
+        b = False
+        st.image(st.session_state.log[-1])
+    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',disabled = b)
 
 
 
