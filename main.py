@@ -64,7 +64,12 @@ with col3:
                  data = f.getvalue()
                  b =  False
 #-----------------------------------------------------------------------
-#with st.sidebar:
+st.sidebar.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)","Express (2-5 days)")
+)
+
+'''
 st.sidebar.selectbox(
     "How would you like to be contacted?",
     ("Email", "Home phone", "Mobile phone")
@@ -75,6 +80,7 @@ with st.sidebar:
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
+'''
 #-----------------------------------------------------------------------  
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
