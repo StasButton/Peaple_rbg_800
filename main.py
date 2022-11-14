@@ -98,7 +98,7 @@ with col3:
         if(len(st.session_state.log) > 0):
             #b = False
             st.image(st.session_state.log[-1])
-            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2,) # disabled = b
+            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2) # disabled = b
 #-----------------------------------------------------------------------            
 st.sidebar.selectbox(
     "How would you like to be contacted?",
@@ -113,16 +113,16 @@ with st.sidebar:
 #-----------------------------------------------------------------------  
 tab1, tab2, tab3  = st.tabs(["Tab 1", "Tab2", "Tab3"])
 
-with tab1:
-    if uploaded_file is not None:
-        st.image(image_data) 
-with tab2:
-    if uploaded_file_bg is not None:
+if uploaded_file is not None:
+    with tab1:
+        st.image(image_data)
+if uploaded_file_bg is not None:            
+    with tab2:
         st.image(image_data_bg)
 with tab3:
     b =  True    
     #st.image(im)
-    st.download_button(label='Скачать готовое изображение')
+    st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=2)
 
 
 
