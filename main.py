@@ -87,7 +87,8 @@ if uploaded_file is not None:
         #st.image(image_data)
         #img = img.resize((192, 256))
         img = myresize_w256
-        st.image(img)
+        st.text(type(img))
+        #st.image(img)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
