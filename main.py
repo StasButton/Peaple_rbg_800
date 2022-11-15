@@ -79,7 +79,8 @@ def myresize_w256(img):
 
 def preprocess_image(img):
     img = myresize_w256(img)
-    st.text(img.size)
+    
+    st.text(type(img))
     '''
                         #img = img.resize((192, 256))
     x = image.img_to_array(img)
