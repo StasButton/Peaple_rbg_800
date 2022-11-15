@@ -19,7 +19,10 @@ def myresize_w256(img):
 '''  
 
 def myresize_w256(img):
+    
   ke = 0.75
+  if img.size[0]==192 and img.size[1]==256:
+    img = img
   # Маленькие
   if img.size[0]<192 and img.size[1]<256:
     k = img.size[0]/img.size[1]
