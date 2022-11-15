@@ -78,11 +78,9 @@ def myresize_w256(img):
 
 def preprocess_image(img):
     img = myresize_w256(img)
-    st.text(type(img))
                         #img = img.resize((192, 256))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
-    x = 1
     return x
 
 def pedict2(fg,bg):
