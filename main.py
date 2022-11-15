@@ -80,6 +80,7 @@ def preprocess_image(img):
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     '''
+    x = 1
     return x
 
 def pedict2(fg,bg):
