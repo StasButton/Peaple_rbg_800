@@ -7,7 +7,7 @@ img_width = 192;img_height = 256;num_classes = 2
 #--------------------------------------------------
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')
-
+'''
 def myresize_w256(img):
   d = img.size
   h = int(d[1]/(d[1]/256))
@@ -16,6 +16,62 @@ def myresize_w256(img):
   l = im.size[0]/2 - 192/2
   im_cr = im.crop((0+l,0,192+l,256))
   return im_cr
+'''  
+
+def myresize_w256(img):
+  ke = 0.75
+  # Маленькие
+  if img.size[0]<192 and img.size[1]<256:
+    k = img.size[0]/img.size[1]
+    if k<ke:
+    #h высокие
+      kd = img.size[1]/256
+      img = img.resize((int(img.size[0]/kd),256))
+      img = img.resize((192,256))
+    if k>ke:
+    #w  низкие
+      kd = img.size[0]/192
+      img = img.resize((192,int(img.size[1]/kd)))
+      img = img.resize((192,256))
+      #print(img.size)
+  #--------------------------------
+  # Высота уже
+  if img.size[0]>192 and img.size[1]<256:
+  #h
+    kd = img.size[1]/256
+    img = img.resize((int(img.size[1]/kd),256))
+
+    l = img.size[0]/2 - 192/2
+    img = img.crop((0+l,0,192+l,256))
+    
+
+  #----------------------------------------------------------
+  # Ширина уже
+  if img.size[0]<192 and img.size[1]>256:
+  #w
+    kd = img.size[0]/192
+    img = img.resize((192,int(img.size[1]/kd)))
+    l = img.size[1]/2 - 256/2
+    img = img.crop((0,0+l,192,256+l))
+    
+  #----------------------------------------------------------
+  #Большие
+  if img.size[0]>192 and img.size[1]>256:
+    k = img.size[0]/img.size[1]
+    if k<ke:
+    #w
+      kd = img.size[0]/192
+      img = img.resize((192,int(img.size[1]/kd)))
+      l = img.size[1]/2 - 256/2
+      img = img.crop((0,0+l,192,256+l))
+      #print(img.size)
+
+    if k>ke:
+    #h
+      kd = img.size[1]/256
+      img = img.resize((   int(img.size[0]/kd),256   ))
+      l = img.size[0]/2 - 192/2
+      img = img.crop((0+l,0,192+l,256))
 
 def preprocess_image(img):
     img = myresize_w256(img)
