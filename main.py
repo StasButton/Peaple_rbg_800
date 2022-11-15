@@ -8,10 +8,8 @@ img_width = 192;img_height = 256;num_classes = 2
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')  
 
-def myresize_w256(img):
-    
+def myresize_w256(img): 
   ke = 0.75
-  
   if img.size[0]==192 and img.size[1]==256:
     img = img  
   # Маленькие
@@ -35,7 +33,6 @@ def myresize_w256(img):
   #h
     kd = img.size[1]/256
     img = img.resize((int(img.size[1]/kd),256))
-
     l = img.size[0]/2 - 192/2
     img = img.crop((0+l,0,192+l,256))
   #----------------------------------------------------------
@@ -46,7 +43,6 @@ def myresize_w256(img):
     img = img.resize((192,int(img.size[1]/kd)))
     l = img.size[1]/2 - 256/2
     img = img.crop((0,0+l,192,256+l))
-    
   #----------------------------------------------------------
   #Большие
   if img.size[0]>192 and img.size[1]>256:
@@ -58,7 +54,6 @@ def myresize_w256(img):
       l = img.size[1]/2 - 256/2
       img = img.crop((0,0+l,192,256+l))
       #print(img.size)
-
     if k>ke:
     #h
       kd = img.size[1]/256
@@ -66,13 +61,11 @@ def myresize_w256(img):
       l = img.size[0]/2 - 192/2
       img = img.crop((0+l,0,192+l,256))
     if k == ke:
-      img = img.resize((192,256))
-  
+      img = img.resize((192,256))  
   return img
 
 def preprocess_image(img):
     img = myresize_w256(img)
-                        #img = img.resize((192, 256))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     return x
@@ -87,7 +80,6 @@ def pedict2(fg,bg):
     bg = bg.reshape(img_height,img_width,3)
     return bg
 #--------------------------------------------------
-
 global data
 data = io.BytesIO()
 global im
@@ -97,7 +89,6 @@ global img
 
 st.title('Замена фона на фотографиях людей')
 #-----------------------------------------------------------------------
-
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
 with tab1:
@@ -133,7 +124,6 @@ with tab3:
              with io.BytesIO() as f:
                  im.save(f, format='JPEG')
                  data = f.getvalue()
-                 #b =  False
              #st.balloons()
              #st.snow()
 
