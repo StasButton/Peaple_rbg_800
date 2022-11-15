@@ -146,7 +146,7 @@ if uploaded_file is not None:
     with tab1:
         #st.image(image_data)
         imf = myresize_w256(img)
-        st.image(imf)
+        st.text(imf.size)#image(imf)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
