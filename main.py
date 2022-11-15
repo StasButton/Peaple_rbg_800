@@ -24,7 +24,6 @@ def myresize_w256(img):
   
   if img.size[0]==192 and img.size[1]==256:
     img = img  
-   
   # Маленькие
   if img.size[0]<192 and img.size[1]<256:
     k = img.size[0]/img.size[1]
@@ -48,8 +47,6 @@ def myresize_w256(img):
 
     l = img.size[0]/2 - 192/2
     img = img.crop((0+l,0,192+l,256))
-    
-
   #----------------------------------------------------------
   # Ширина уже
   if img.size[0]<192 and img.size[1]>256:
@@ -77,6 +74,7 @@ def myresize_w256(img):
       img = img.resize((   int(img.size[0]/kd),256   ))
       l = img.size[0]/2 - 192/2
       img = img.crop((0+l,0,192+l,256))
+  st.text(type(img))
   return img
 
 def preprocess_image(img):
