@@ -102,20 +102,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.text('A')
 with col2:
-        result = st.button('Заменить фон',key=1)
-        if result:
-             pred_ar = pedict2(x,x_bg) 
-             im = utils.array_to_img(pred_ar)
-             pred_ar_int = pred_ar.astype(np.uint8)
-             im = Image.fromarray(pred_ar_int)
-             #st.image(im)
-             st.session_state.log.append(im)
-             with io.BytesIO() as f:
-                 im.save(f, format='JPEG')
-                 data = f.getvalue()
-                 b =  False
-             #st.balloons()
-             #st.snow()
+    st.text('B')
 #-----------------------------------------------------------------------
 
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
@@ -140,9 +127,25 @@ with tab2:
         
             imb = myresize_w256(img_bg)
             st.image(imb)
-if len(st.session_state.log) > 0:
-    with tab3:  
-        st.image(st.session_state.log[-1])
-        st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
+
+with tab3:
+        result = st.button('Заменить фон',key=1)
+        if result:
+             pred_ar = pedict2(x,x_bg) 
+             im = utils.array_to_img(pred_ar)
+             pred_ar_int = pred_ar.astype(np.uint8)
+             im = Image.fromarray(pred_ar_int)
+             #st.image(im)
+             st.session_state.log.append(im)
+             with io.BytesIO() as f:
+                 im.save(f, format='JPEG')
+                 data = f.getvalue()
+                 #b =  False
+             #st.balloons()
+             #st.snow()
+
+        if len(st.session_state.log) > 0:
+            st.image(st.session_state.log[-1])
+            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
 
 
