@@ -21,8 +21,10 @@ def myresize_w256(img):
 def myresize_w256(img):
     
   ke = 0.75
+  st.text(type(img))
   if img.size[0]==192 and img.size[1]==256:
-    img = img
+    img = img  
+   
   # Маленькие
   if img.size[0]<192 and img.size[1]<256:
     k = img.size[0]/img.size[1]
@@ -79,8 +81,6 @@ def myresize_w256(img):
 
 def preprocess_image(img):
     img = myresize_w256(img)
-    
-    st.text(type(img))
     '''
                         #img = img.resize((192, 256))
     x = image.img_to_array(img)
