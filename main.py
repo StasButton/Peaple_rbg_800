@@ -38,7 +38,8 @@ def myresize_w256(img):
       kd = img.size[0]/192
       img = img.resize((192,int(img.size[1]/kd)))
       img = img.resize((192,256))
-      #print(img.size)
+    if k == ke:
+      img = img.resize((192,256))
   #--------------------------------
   # Высота уже
   if img.size[0]>192 and img.size[1]<256:
@@ -76,6 +77,8 @@ def myresize_w256(img):
       img = img.resize((   int(img.size[0]/kd),256   ))
       l = img.size[0]/2 - 192/2
       img = img.crop((0+l,0,192+l,256))
+    if k == ke:
+      img = img.resize((192,256))
   
   return img
 
