@@ -74,11 +74,12 @@ def myresize_w256(img):
       img = img.crop((0+l,0,192+l,256))
 
 def preprocess_image(img):
+    '''
     img = myresize_w256(img)
                         #img = img.resize((192, 256))
     x = image.img_to_array(img)
-    #x = np.expand_dims(x, axis=0)
-    
+    x = np.expand_dims(x, axis=0)
+    '''
     return x
 
 def pedict2(fg,bg):
@@ -108,8 +109,9 @@ with col1:
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         img = Image.open(io.BytesIO(image_data))
-        st.text(img.size)
-        #x = preprocess_image(img)
+        #st.text(img.size)
+        x = preprocess_image(img)
+        
         
         
 with col2:
@@ -145,8 +147,8 @@ tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Резул�
 if uploaded_file is not None:
     with tab1:
         #st.image(image_data)
-        imf = myresize_w256(img)
-        st.text(imf.size)#image(imf)
+        #imf = myresize_w256(img)
+        #st.text(imf.size)#image(imf)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
