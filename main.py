@@ -146,7 +146,7 @@ if uploaded_file is not None:
 if uploaded_file_bg is not None:            
     with tab2:
         imb = myresize_w256(img)
-        st.image(imb)
+        st.image(img_bg)
 if len(st.session_state.log) > 0:
     with tab3:  
         st.image(st.session_state.log[-1])
