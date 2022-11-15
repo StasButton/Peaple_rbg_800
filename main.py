@@ -126,7 +126,7 @@ with col3:
                  data = f.getvalue()
                  b =  False
              #st.balloons()
-             st.snow()
+             #st.snow()
 #-----------------------------------------------------------------------
 st.sidebar.radio(
         "Choose a shipping method",
