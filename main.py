@@ -96,13 +96,6 @@ global image_data
 global img
 
 st.title('Замена фона на фотографиях людей')
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.text('A')
-with col2:
-    st.text('B')
 #-----------------------------------------------------------------------
 
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
