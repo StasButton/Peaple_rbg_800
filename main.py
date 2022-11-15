@@ -145,9 +145,8 @@ tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Резул�
 if uploaded_file is not None:
     with tab1:
         #st.image(image_data)
-        #img = img.resize((192, 256))
         imf = myresize_w256(img)
-        #st.image(imf)
+        st.image(imf)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
