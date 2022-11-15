@@ -97,13 +97,11 @@ global img
 
 st.title('Замена фона на фотографиях людей')
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 
 with col1:
-   
+    st.text('A')
 with col2:
-
-with col3:
         result = st.button('Заменить фон',key=1)
         if result:
              pred_ar = pedict2(x,x_bg) 
