@@ -128,11 +128,7 @@ with col3:
              #st.balloons()
              #st.snow()
 #-----------------------------------------------------------------------
-st.sidebar.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)","Express (2-5 days)w")
-)
-#-----------------------------------------------------------------------  
+
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
 if uploaded_file is not None:
