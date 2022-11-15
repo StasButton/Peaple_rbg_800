@@ -61,7 +61,6 @@ def myresize_w256(img):
   #Большие
   if img.size[0]>192 and img.size[1]>256:
     k = img.size[0]/img.size[1]
-    st.text(k)
     if k<ke:
     #w
       kd = img.size[0]/192
