@@ -74,6 +74,7 @@ def myresize_w256(img):
       img = img.resize((   int(img.size[0]/kd),256   ))
       l = img.size[0]/2 - 192/2
       img = img.crop((0+l,0,192+l,256))
+  st.text(img.size)
   return img
 
 def preprocess_image(img):
