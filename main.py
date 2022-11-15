@@ -78,6 +78,7 @@ def preprocess_image(img):
     #img = img.resize((192, 256))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
+    st.text(x.shape)
     return x
 
 def pedict2(fg,bg):
@@ -144,7 +145,7 @@ if uploaded_file is not None:
         #st.image(image_data)
         #img = img.resize((192, 256))
         imf = myresize_w256(img)
-        st.image(imf)
+        #st.image(imf)
 if uploaded_file_bg is not None:            
     with tab2:
         st.image(image_data_bg)
