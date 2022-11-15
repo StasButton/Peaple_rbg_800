@@ -74,8 +74,9 @@ def myresize_w256(img):
       img = img.crop((0+l,0,192+l,256))
 
 def preprocess_image(img):
-    '''
     img = myresize_w256(img)
+    st.image(img)
+    '''
                         #img = img.resize((192, 256))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
