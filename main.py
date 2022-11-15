@@ -120,18 +120,17 @@ with col2:
 
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
-if uploaded_file is not None:
-    with tab1:
+with tab1:
         uploaded_file = st.file_uploader(label='фото человека')
         if uploaded_file is not None:
             image_data = uploaded_file.getvalue()
             img = Image.open(io.BytesIO(image_data))
             x = preprocess_image(img)
 
-        imf = myresize_w256(img)
-        st.image(imf)
-if uploaded_file_bg is not None:            
-    with tab2: 
+            imf = myresize_w256(img)
+            st.image(imf)
+           
+with tab2: 
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
@@ -139,8 +138,8 @@ if uploaded_file_bg is not None:
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
         
-        imb = myresize_w256(img_bg)
-        st.image(imb)
+            imb = myresize_w256(img_bg)
+            st.image(imb)
 if len(st.session_state.log) > 0:
     with tab3:  
         st.image(st.session_state.log[-1])
