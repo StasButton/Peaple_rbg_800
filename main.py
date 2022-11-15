@@ -76,7 +76,7 @@ def myresize_w256(img):
 def preprocess_image(img):
     img = myresize_w256(img)
                         #img = img.resize((192, 256))
-    #x = image.img_to_array(img)
+    x = image.img_to_array(img)
     #x = np.expand_dims(x, axis=0)
     
     return x
@@ -108,7 +108,9 @@ with col1:
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         img = Image.open(io.BytesIO(image_data))
-        x = preprocess_image(img)
+        st.text(img.size)
+        #x = preprocess_image(img)
+        
         
 with col2:
     uploaded_file_bg = st.file_uploader(label='Выберите фон')
