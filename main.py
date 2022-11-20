@@ -71,6 +71,7 @@ def preprocess_image(img):
     return x
 
 def pedict2(fg,bg):
+    
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
