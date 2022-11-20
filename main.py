@@ -3,65 +3,65 @@ from tensorflow.keras.preprocessing import image;from tensorflow.keras import ut
 
 if 'log' not in st.session_state:
     st.session_state.log = []
-img_width = 192;img_height = 256;num_classes = 2
+img_width = 608;img_height = 800;num_classes = 2
 #--------------------------------------------------
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')  
 
 def myresize_w256(img): 
   ke = 0.75
-  if img.size[0]==192 and img.size[1]==256:
+  if img.size[0]==img_width and img.size[1]==img_height:
     img = img  
   # Маленькие
-  if img.size[0]<192 and img.size[1]<256:
+  if img.size[0]<img_width and img.size[1]<img_height:
     k = img.size[0]/img.size[1]
     if k<ke:
     #h высокие
-      kd = img.size[1]/256
-      img = img.resize((int(img.size[0]/kd),256))
-      img = img.resize((192,256))
+      kd = img.size[1]/img_height
+      img = img.resize((int(img.size[0]/kd),img_height))
+      img = img.resize((img_width,img_height))
     if k>ke:
     #w  низкие
-      kd = img.size[0]/192
-      img = img.resize((192,int(img.size[1]/kd)))
-      img = img.resize((192,256))
+      kd = img.size[0]/img_width
+      img = img.resize((img_width,int(img.size[1]/kd)))
+      img = img.resize((img_width,img_height))
     if k == ke:
-      img = img.resize((192,256))
+      img = img.resize((img_width,img_height))
   #--------------------------------
   # Высота уже
-  if img.size[0]>192 and img.size[1]<256:
+  if img.size[0]>img_width and img.size[1]<img_height:
   #h
-    kd = img.size[1]/256
-    img = img.resize((int(img.size[1]/kd),256))
-    l = img.size[0]/2 - 192/2
-    img = img.crop((0+l,0,192+l,256))
+    kd = img.size[1]/img_height
+    img = img.resize((int(img.size[1]/kd),img_height))
+    l = img.size[0]/2 - img_width/2
+    img = img.crop((0+l,0,img_width+l,img_height))
   #----------------------------------------------------------
   # Ширина уже
-  if img.size[0]<192 and img.size[1]>256:
+  if img.size[0]<img_width and img.size[1]>img_height:
   #w
-    kd = img.size[0]/192
-    img = img.resize((192,int(img.size[1]/kd)))
-    l = img.size[1]/2 - 256/2
-    img = img.crop((0,0+l,192,256+l))
+    kd = img.size[0]/img_width
+    img = img.resize((img_width,int(img.size[1]/kd)))
+    l = img.size[1]/2 - img_height/2
+    img = img.crop((0,0+l,img_width,img_height+l))
   #----------------------------------------------------------
   #Большие
-  if img.size[0]>192 and img.size[1]>256:
+  if img.size[0]>img_width and img.size[1]>img_height:
     k = img.size[0]/img.size[1]
     if k<ke:
     #w
-      kd = img.size[0]/192
-      img = img.resize((192,int(img.size[1]/kd)))
-      l = img.size[1]/2 - 256/2
-      img = img.crop((0,0+l,192,256+l))
+      kd = img.size[0]/img_width
+      img = img.resize((img_width,int(img.size[1]/kd)))
+      l = img.size[1]/2 - img_height/2
+      img = img.crop((0,0+l,img_width,img_height+l))
       #print(img.size)
     if k>ke:
     #h
-      kd = img.size[1]/256
-      img = img.resize((   int(img.size[0]/kd),256   ))
-      l = img.size[0]/2 - 192/2
-      img = img.crop((0+l,0,192+l,256))
+      kd = img.size[1]/img_height
+      img = img.resize((   int(img.size[0]/kd),img_height   ))
+      l = img.size[0]/2 - img_width/2
+      img = img.crop((0+l,0,img_width+l,img_height))
     if k == ke:
-      img = img.resize((192,256))  
+      img = img.resize((img_width,img_height))  
   return img
 
 def preprocess_image(img):
