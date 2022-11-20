@@ -70,7 +70,13 @@ def preprocess_image(img):
     x = np.expand_dims(x, axis=0)
     return x
 
+def resize_image(img):
+    img =  img.resize((608,800))
+    return img
+
 def pedict2(fg,bg):
+    fg = resize_image(fg)
+    bg = resize_image(bg)
     
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
