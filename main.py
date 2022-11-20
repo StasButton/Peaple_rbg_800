@@ -66,6 +66,9 @@ def myresize_w256(img):
 
 def preprocess_image(img):
     img = myresize_w256(img)
+    
+    img =  img.resize((608,800))
+    
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     return x
@@ -75,8 +78,7 @@ def resize_image(img):
     return img
 
 def pedict2(fg,bg):
-    fg = resize_image(fg)
-    bg = resize_image(bg)
+
     
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
