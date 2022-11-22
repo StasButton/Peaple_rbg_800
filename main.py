@@ -78,16 +78,30 @@ def resize_image(img):
     return img
 
 def pedict2(fg,bg):
-
-    
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
+    bg = bg.reshape(-1, 3)
     for i , q in enumerate(pr): #start =1
         if np.argmax(q) > 0.5:
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
+
+def load_im(l):
+    uploaded_file = st.file_uploader(label= l )
+    if uploaded_file is not None:
+        image_data = uploaded_file.getvalue()
+        img = Image.open(io.BytesIO(image_data))
+        x = preprocess_image(img)
+
+        imf = myresize_w256(img)
+        st.image(imf)
+        return x
+    else:
+        return None
+
+       
 #--------------------------------------------------
 global data
 data = io.BytesIO()
@@ -101,6 +115,8 @@ st.title('Замена фона на фотографиях людей')
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
 with tab1:
+        x = load_im('фото человека')
+        '''
         uploaded_file = st.file_uploader(label='фото человека')
         if uploaded_file is not None:
             image_data = uploaded_file.getvalue()
@@ -109,17 +125,20 @@ with tab1:
 
             imf = myresize_w256(img)
             st.image(imf)
-           
-with tab2: 
+        '''   
+with tab2:
+        x_bg = load_im('Выберите фон')
+        '''
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
-            x_bg = x_bg.reshape(-1, 3)
+            #x_bg = x_bg.reshape(-1, 3)
         
             imb = myresize_w256(img_bg)
             st.image(imb)
+        '''
 
 with tab3:
         result = st.button('Заменить фон',key=1)
