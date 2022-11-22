@@ -66,9 +66,7 @@ def myresize_w256(img):
 
 def preprocess_image(img):
     img = myresize_w256(img)
-    
     img =  img.resize((608,800))
-    
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     return x
@@ -99,9 +97,7 @@ def load_im(l):
         st.image(imf)
         return x
     else:
-        return None
-
-       
+        return None    
 #--------------------------------------------------
 global data
 data = io.BytesIO()
