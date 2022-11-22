@@ -85,7 +85,7 @@ def pedict2(fg,bg):
             bg[i] = fg[i]
     bg = bg.reshape(img_height,img_width,3)
     return bg
-
+'''
 def load_im(l):
     uploaded_file = st.file_uploader(label= l )
     if uploaded_file is not None:
@@ -97,7 +97,8 @@ def load_im(l):
         st.image(imf)
         return x
     else:
-        return None    
+        return None
+'''
 #--------------------------------------------------
 global data
 data = io.BytesIO()
@@ -108,7 +109,49 @@ global img
 
 st.title('Замена фона на фотографиях людей')
 #-----------------------------------------------------------------------
+
+def load_im(l):
+    uploaded_file = st.file_uploader(label=l)
+    if uploaded_file is not None:
+        image_data = uploaded_file.getvalue()
+        img = Image.open(io.BytesIO(image_data))
+        x = preprocess_image(img)
+        imf = myresize_w256(img)
+        st.image(imf) 
+        return x
+    else:
+        return None
+
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
+
+with tab1:
+        x = load_im('фото человека')
+           
+with tab2:
+        x_bg = load_im('Выберите фон')
+
+with tab3:
+        result = st.button('Заменить фон',key=1)
+        if result:
+             pred_ar = pedict2(x,x_bg) 
+             im = utils.array_to_img(pred_ar)
+             pred_ar_int = pred_ar.astype(np.uint8)
+             im = Image.fromarray(pred_ar_int)
+             #st.image(im)
+             st.session_state.log.append(im)
+             with io.BytesIO() as f:
+                 im.save(f, format='JPEG')
+                 data = f.getvalue()
+             #st.balloons()
+             #st.snow()
+
+        if len(st.session_state.log) > 0:
+            st.image(st.session_state.log[-1])
+            st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
+
+
+'''
+
 
 with tab1:
         x = load_im('фото человека')  
@@ -132,5 +175,5 @@ with tab3:
         if len(st.session_state.log) > 0:
             st.image(st.session_state.log[-1])
             st.download_button(label='Скачать готовое изображение',data = data,file_name='change_bg.jpg',key=3)
-
+'''
 
